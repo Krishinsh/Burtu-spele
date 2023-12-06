@@ -50,9 +50,21 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
         
     </div>
   </header>
-<div class="w3-display-container w3-margin" style="height:300px;">
-    <div class="w3-display-topmiddle">
-        <button class="w3-button w3-padding w3-round-xlarge w3-xlarge w3-border w3-border-white w3-round-xlarge w3-ripple" id="start">Sākt spēli</button>
+<div class="w3-display-container" style="height:300px;" >
+    <div class="w3-display-topmiddle" id="izvele">
+        <button class="w3-button w3-padding w3-round-xlarge w3-xlarge w3-border w3-border-white w3-round-xlarge w3-ripple" id="start" onclick="izveliesVardus()">Sākt spēli</button>
+        <script>
+            function izveliesVardus(){
+            let poga= document.createElement("poga");poga.type="w3-button";
+            
+                   document.getElementById("izvele").appendChild(poga);
+                   
+                   
+                   poga.innerHTML="asuifiusghuigasduighuidhfui";
+                   
+                   display: none;
+                 }
+        </script>
     </div>
     
     <div class="w3-display-bottommiddle">
