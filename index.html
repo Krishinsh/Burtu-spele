@@ -51,21 +51,45 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     </div>
   </header>
 <div class="w3-display-container" style="height:300px;" >
-    <div class="w3-display-topmiddle" id="izvele">
-        <button class="w3-button w3-padding w3-round-xlarge w3-xlarge w3-border w3-border-white w3-round-xlarge w3-ripple" id="start" onclick="izveliesVardus()">Sākt spēli</button>
+    <div class="w3-display-topmiddle" id="game">
+         <button class="w3-button w3-padding w3-round-xlarge w3-xlarge w3-border w3-border-white w3-round-xlarge w3-ripple " id="start" onclick="izveliesVardus(); ">Sākt spēli</button>
+         <div>
+        <label for="vards" id="rakstizvele" style="visibility: collapse;">Izvelies vardu daudzumu </label>
+       
+        <div class="w3-bar  "  id= "vards">
         <script>
+          
             function izveliesVardus(){
-            let poga= document.createElement("poga");poga.type="w3-button";
+          document.getElementById("start").style.visibility = 'collapse';
+           
+
+                   for(let i=0;i<3;i++){
+                       let poga= document.createElement("button");poga.type="w3-button";
+                       
+                        document.getElementById("rakstizvele").appendChild(poga);
+                         poga.innerHTML=" "+(i+3);
+                         poga.setAttribute('id',i);
+                         poga.onclick=varduDaudz();
+                         
+                     }
+                     document.getElementById("rakstizvele").style.visibility = 'visible';
+            }
+              function varduDaudz(){
+               let x=document.getElementById("poga");
+                   for(let i=0;i<x+3;i++){
+                       let poga= document.createElement("button");poga.type="w3-button";
+                        document.getElementById("vards").appendChild(poga);
+                         poga.innerHTML=" afasdasdasd";
+                         
+                     }
+                    
+            }
             
-                   document.getElementById("izvele").appendChild(poga);
-                   
-                   
-                   poga.innerHTML="asuifiusghuigasduighuidhfui";
-                   
-                   display: none;
-                 }
         </script>
+            
+        </div>
     </div>
+    </div>     
     
     <div class="w3-display-bottommiddle">
         <div class="w3-bar">
