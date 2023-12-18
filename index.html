@@ -1,121 +1,167 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="style.css" type="text/css"/>
-<link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/128/3665/3665892.png">
-   
-<style>
-body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
-.w3-row-padding img {margin-bottom: 12px}
+    <head>
+        <title>W3.CSS Template</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/128/3665/3665892.png">
 
-.w3-sidebar {width: 100px;background: #222;}
-/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
-#main {margin-left: 100px}
-/* Remove margins from "page content" on small screens */
-</style>
-</head>
-<body class="w3-black">
-
-<!-- Icon Bar (Sidebar - hidden on small screens) -->
-<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-  <!-- Avatar image in top left corner -->
-  <a href="#home" class="w3-bar-item w3-button w3-padding-large w3-black">
-    <i class="fa fa-home w3-xxlarge"></i>
-    <p>GAME</p>
-  </a>
-  <a href="#rules" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-user w3-xxlarge"></i>
-    <p>RULES</p>
-  </a>
-  <a href="#Results" class="w3-bar-item w3-button w3-padding-large w3-hover-black">    
-    <i class="fa fa-eye w3-xxlarge"></i>
-    <p>RESULTS</p>
-  </a>
-  
-</nav>
-
-
-<!-- Page Content -->
-<div class="w3-padding-small" id="main">
- 
-  <header class="w3-container w3-padding-16 w3-center w3-black" id="home">
-    <h1 class="w3-jumbo">BURTU SPĒLE</h1>
-    <div class="w3-display-container" style="height:100px;">
-        
-    </div>
-  </header>
-<div class="w3-display-container" style="height:300px;" >
-    <div class="w3-display-topmiddle" id="game">
-         <button class="w3-button w3-padding w3-round-xlarge w3-xlarge w3-border w3-border-white w3-round-xlarge w3-ripple " id="start" onclick="izveliesVardus(); ">Sākt spēli</button>
-         <div>
-        <label for="vards" id="rakstizvele" style="visibility: collapse;">Izvelies vardu daudzumu </label>
-       
-        <div class="w3-bar  "  id= "vards">
-        <script>
-          
-            function izveliesVardus(){
-          document.getElementById("start").style.visibility = 'collapse';
-           
-
-                   for(let i=0;i<3;i++){
-                       let poga= document.createElement("button");poga.type="w3-button";
-                       
-                        document.getElementById("rakstizvele").appendChild(poga);
-                         poga.innerHTML=" "+(i+3);
-                         poga.setAttribute('id',i);
-                         poga.onclick=varduDaudz();
-                         
-                     }
-                     document.getElementById("rakstizvele").style.visibility = 'visible';
+        <style>
+            body, h1,h2,h3,h4,h5,h6 {
+                font-family: "Montserrat", sans-serif
             }
-              function varduDaudz(){
-               let x=document.getElementById("poga");
-                   for(let i=0;i<x+3;i++){
-                       let poga= document.createElement("button");poga.type="w3-button";
-                        document.getElementById("vards").appendChild(poga);
-                         poga.innerHTML=i;
-                         
-                     }
-                    
+            .w3-row-padding img {
+                margin-bottom: 12px
             }
-            
-        </script>
-            
-        </div>
-    </div>
-    </div>     
-    
-    <div class="w3-display-bottommiddle">
-        <div class="w3-bar">
-            <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" id="1"></button>
-            <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" id="2"></button>
-            <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" id="3"></button>
-            <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" id="4"></button>
-            <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" id="5"></button>
-            <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" id="6"></button>
-        </div>
-    </div>    
-</div>  
-  <!-- About Section -->
-  <div class="w3-display-container w3-margin"  style="height:400px;">
-        <div class="w3-display-bottomleft w3-margin-left" id="rules">
-            <div class="w3-xxlarge" style="text-shadow:1px 1px 0 #444">NOTEIKUMI</div>
-            <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444" >1. Spēlētājs izvēlas cik vārdus minēs 3,4 vai 5.</div>
-            <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444">2. Tiek iedoti 6 burti no kuriem jāveido vārdi.</div>
-            <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444"> 3.Pēc katriem uzminētiem vārdiem nomainas burti un jāmin jauni vārdi.</div>
-            <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444"> 4.Sākot spēli laiks sāk skaitīties uz leju no 30 sekundēm.</div>
-            <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444"> 5. Jo vairāk vārdus veiksmīgi saliek, jo vairāk punkti.</div>
-        </div>       
-  </div>
 
-<!-- END PAGE CONTENT -->
-</div>
+            .w3-sidebar {
+                width: 100px;
+                background: #222;
+            }
+            /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+            #main {
+                margin-left: 100px
+            }
+            /* Remove margins from "page content" on small screens */
+        </style>
+    </head>
+    <body class="w3-black">
 
-</body>
+        <!-- Icon Bar (Sidebar - hidden on small screens) -->
+        <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+            <!-- Avatar image in top left corner -->
+            <a href="#home" class="w3-bar-item w3-button w3-padding-large w3-black">
+                <i class="fa fa-home w3-xxlarge"></i>
+                <p>GAME</p>
+            </a>
+            <a href="#rules" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                <i class="fa fa-user w3-xxlarge"></i>
+                <p>RULES</p>
+            </a>
+            <a href="#Results" class="w3-bar-item w3-button w3-padding-large w3-hover-black">    
+                <i class="fa fa-eye w3-xxlarge"></i>
+                <p>RESULTS</p>
+            </a>
+
+        </nav>
+
+
+        <!-- Page Content -->
+        <div class="w3-padding-small" id="main">
+
+            <header class="w3-container w3-padding-16 w3-center w3-black" id="home">
+                <h1 class="w3-jumbo">BURTU SPĒLE</h1>
+                <div class="w3-display-container" style="height:100px;">
+
+                </div>
+            </header>
+            <div class="w3-display-container" style="height:300px;" >
+                <div class="w3-display-topmiddle" id="game">
+                    <button class="w3-button w3-padding w3-round-xlarge w3-xlarge w3-border w3-border-white w3-round-xlarge w3-ripple " id="start" onclick="izveliesVardus();">Sākt spēli</button>
+                    <div>
+                        <label for="vards" id="rakstizvele" style="visibility: collapse;">Izvelies vardu daudzumu </label>
+
+                        <div class="w3-bar  "  id= "vards">
+                            <script>
+
+                                function izveliesVardus() {
+                                    document.getElementById("start").style.visibility = 'collapse';
+
+
+                                    for (let i = 0; i < 3; i++) {
+                                        let poga = document.createElement("button");
+                                        poga.type = "w3-button";
+
+                                        document.getElementById("rakstizvele").appendChild(poga);
+                                        poga.innerHTML = " " + (i + 3);
+                                        poga.setAttribute('id', i);
+                                        poga.onclick = varduDaudz();
+
+                                    }
+                                    document.getElementById("rakstizvele").style.visibility = 'visible';
+                                }
+                                function varduDaudz() {
+                                    let x = document.getElementById("poga");
+                                    for (let i = 0; i < x + 3; i++) {
+                                        let poga = document.createElement("button");
+                                        poga.type = "w3-button";
+                                        document.getElementById("vards").appendChild(poga);
+                                        poga.innerHTML = i;
+
+                                    }
+
+                                }
+
+                            </script>
+
+                        </div>
+                    </div>
+                </div>     
+
+                <div class="w3-display-bottommiddle">
+                    <div class="w3-bar">
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" id="burt1" onclick="burts1();"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" id="burt2" onclick="burts2();"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" id="burt3" onclick="burts3();"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" id="burt8" onclick="burts8();"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" id="burt4" onclick="burts4();"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" id="burt5" onclick="burts5();"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" id="burt6" onclick="burts6();"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" id="burt7" onclick="burts7();"></button>
+                    </div>
+                </div> 
+                <script>
+                    const vowels = ['A', 'E', 'I', 'O', 'U'];
+                    const consonants = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'];
+                    function izveliesVardus() {
+                        document.getElementById("burt1").innerHTML = vowels[Math.floor(Math.random() * 5)];
+                        document.getElementById("burt2").innerHTML = vowels[Math.floor(Math.random() * 5)];
+                        while (document.getElementById("burt2").innerHTML === document.getElementById("burt1").innerHTML) {
+                            document.getElementById("burt2").innerHTML = vowels[Math.floor(Math.random() * 5)];
+                        }
+                        document.getElementById("burt3").innerHTML = vowels[Math.floor(Math.random() * 5)];
+                        while (document.getElementById("burt3").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt3").innerHTML === document.getElementById("burt2").innerHTML) {
+                            document.getElementById("burt3").innerHTML = vowels[Math.floor(Math.random() * 5)];
+                        }
+                        document.getElementById("burt4").innerHTML = consonants[Math.floor(Math.random() * 21)];
+                        document.getElementById("burt5").innerHTML = consonants[Math.floor(Math.random() * 21)];
+                        while (document.getElementById("burt4").innerHTML === document.getElementById("burt5").innerHTML) {
+                            document.getElementById("burt5").innerHTML = consonants[Math.floor(Math.random() * 21)];
+                        }
+                        document.getElementById("burt6").innerHTML = consonants[Math.floor(Math.random() * 21)];
+                        while (document.getElementById("burt6").innerHTML === document.getElementById("burt4").innerHTML || document.getElementById("burt6").innerHTML === document.getElementById("burt5").innerHTML) {
+                            document.getElementById("burt6").innerHTML = consonants[Math.floor(Math.random() * 21)];
+                        }
+                        document.getElementById("burt7").innerHTML = consonants[Math.floor(Math.random() * 21)];
+                        while (document.getElementById("burt7").innerHTML === document.getElementById("burt4").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt5").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt6").innerHTML) {
+                            document.getElementById("burt7").innerHTML = consonants[Math.floor(Math.random() * 21)];
+                        }
+                        document.getElementById("burt8").innerHTML = vowels[Math.floor(Math.random() * 5)];
+                        while (document.getElementById("burt8").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt8").innerHTML === document.getElementById("burt2").innerHTML || document.getElementById("burt8").innerHTML === document.getElementById("burt3").innerHTML) {
+                            document.getElementById("burt8").innerHTML = vowels[Math.floor(Math.random() * 5)];
+                        }   
+                    }
+
+                </script>    
+            </div>  
+            <!-- About Section -->
+            <div class="w3-display-container w3-margin"  style="height:400px;">
+                <div class="w3-display-bottomleft w3-margin-left" id="rules">
+                    <div class="w3-xxlarge" style="text-shadow:1px 1px 0 #444">NOTEIKUMI</div>
+                    <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444" >1. Spēlētājs izvēlas cik vārdus minēs 3,4 vai 5.</div>
+                    <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444">2. Tiek iedoti 6 burti no kuriem jāveido vārdi.</div>
+                    <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444"> 3.Pēc katriem uzminētiem vārdiem nomainas burti un jāmin jauni vārdi.</div>
+                    <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444"> 4.Sākot spēli laiks sāk skaitīties uz leju no 30 sekundēm.</div>
+                    <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444"> 5. Jo vairāk vārdus veiksmīgi saliek, jo vairāk punkti.</div>
+                </div>       
+            </div>
+
+            <!-- END PAGE CONTENT -->
+        </div>
+
+    </body>
 </html>
