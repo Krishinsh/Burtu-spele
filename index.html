@@ -66,36 +66,42 @@
                         <label for="vards" id="rakstizvele" style="visibility: collapse;">Izvelies vardu daudzumu </label>
 
                         <div class="w3-bar  "  id= "vards">
-                            <script>
-
+                          <script>
+                                   
                                 function izveliesVardus() {
                                     document.getElementById("start").style.visibility = 'collapse';
-
-
+                                    let poga = document.createElement("button");
                                     for (let i = 0; i < 3; i++) {
                                         let poga = document.createElement("button");
                                         poga.type = "w3-button";
-
-                                        document.getElementById("rakstizvele").appendChild(poga);
                                         poga.innerHTML = " " + (i + 3);
-                                        poga.setAttribute('id', i);
-                                        poga.onclick = varduDaudz();
-
+                                        poga.setAttribute('id',"poga"+i);
+                                        poga.setAttribute('class',"button");
+                                        document.getElementById("rakstizvele").appendChild(poga);
+                                        console.log(poga.id);
+                                            poga.onclick=varduDaudz(poga.id);
+                                            
+                                        
+                                       
                                     }
+                                    
+                                  
                                     document.getElementById("rakstizvele").style.visibility = 'visible';
-                                }
-                                function varduDaudz() {
-                                    let x = document.getElementById("poga");
-                                    for (let i = 0; i < x + 3; i++) {
-                                        let poga = document.createElement("button");
-                                        poga.type = "w3-button";
-                                        document.getElementById("vards").appendChild(poga);
-                                        poga.innerHTML = i;
+                                    function varduDaudz() {
+                                       let x=document.getElementById(poga.id);
+                                    console.log(x);
+                                       
+                                 
+                                        for (let i = 0; i < x ; i++) {
+                                            let poga = document.createElement("button");
+                                            poga.type = "w3-button";
+                                            document.getElementById("vards").appendChild(poga);
+                                            poga.innerHTML = " test";
+
+                                        }
 
                                     }
-
                                 }
-
                             </script>
 
                         </div>
