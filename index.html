@@ -81,14 +81,14 @@
 
                 <div class="w3-display-bottommiddle">
                     <div class="w3-bar" style="width:400px;">
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt1" onclick="burts1();"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt2" onclick="burts2();"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt3" onclick="burts3();"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt8" onclick="burts8();"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt4" onclick="burts4();"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt5" onclick="burts5();"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt6" onclick="burts6();"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12%" id="burt7" onclick="burts7();"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt1" onclick="burts(id,this);"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt2" onclick="burts(id,this);"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt3" onclick="burts(id,this);"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt8" onclick="burts(id,this);"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt4" onclick="burts(id,this);"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt5" onclick="burts(id,this);"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt6" onclick="burts(id,this);"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12%" id="burt7" onclick="burts(id,this);"></button>
                     </div>
                 </div> 
 
@@ -111,33 +111,22 @@
     </body>
 </html>
 <script>
+   
     function varduDaudz(id) {
         let x = document.getElementById(id).innerHTML.toString();
         console.log(x);
-        x = x * 5;
-        for (let i = 0; i < x; i++) {
+     
+        for (let i = 0; i < 5; i++) {
             let burtivarda = document.createElement("button");
-            if (i < 5) {
+            
                 document.getElementById("vards").appendChild(burtivarda);
                 burtivarda.innerHTML = " __ ";
-            } else if (i < 10) {
-                document.getElementById("vards2").appendChild(burtivarda);
-                burtivarda.innerHTML = " __ ";
-            } else if (i < 15) {
-                document.getElementById("vards3").appendChild(burtivarda);
-                burtivarda.innerHTML = " __ ";
-            } else if (i < 20) {
-                document.getElementById("vards4").appendChild(burtivarda);
-                burtivarda.innerHTML = " __ ";
-            } else if (i < 25) {
-                document.getElementById("vards5").appendChild(burtivarda);
-                burtivarda.innerHTML = " __ ";
-            }
-            burtivarda.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
+                       burtivarda.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
+                       burtivarda.setAttribute('id','burts'+i);
         }
 
         document.getElementById('izvele').style.visibility = 'collapse';
-        console.log(x);
+  
     }
 
     function izveliesDaudz() {
@@ -210,4 +199,13 @@
             document.getElementById("burt8").innerHTML = vowels[Math.floor(Math.random() * 5)];
         }
     }
+    function burts(id){
+        let burts1=false;
+        if(burts1===false){
+      document.getElementById('burts0').innerHTML= document.getElementById(id).innerHTML;
+      burts1=true; }
+     
+ 
+    }
+  
 </script>
