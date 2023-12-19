@@ -73,127 +73,25 @@
                 <div class="w3-display-topmiddle">
                     <h1 class="w3-text-white" style="text-shadow:1px 1px 0 #444" id="pulkstens">
                 </div>               
-                    <script>
-                        function varduDaudz(id) {
-                        let x = document.getElementById(id).innerHTML.toString();
-                        console.log(x);
-                        x = x * 5;
-                        for (let i = 0; i < x; i++) {
-                        let burtivarda = document.createElement("button");
-                        if (i < 5) {
-                        document.getElementById("vards").appendChild(burtivarda);
-                        burtivarda.innerHTML = " __ ";
-                        } else if (i < 10) {
-                        document.getElementById("vards2").appendChild(burtivarda);
-                        burtivarda.innerHTML = " __ ";
-                        } else if (i < 15) {
-                        document.getElementById("vards3").appendChild(burtivarda);
-                        burtivarda.innerHTML = " __ ";
-                        } else if (i < 20) {
-                        document.getElementById("vards4").appendChild(burtivarda);
-                        burtivarda.innerHTML = " __ ";
-                        } else if (i < 25) {
-                        document.getElementById("vards5").appendChild(burtivarda);
-                        burtivarda.innerHTML = " __ ";
-                        }
-                        burtivarda.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
-                        }
-
-                        document.getElementById('izvele').style.visibility = 'collapse';
-                        console.log(x);
-                        }
-
-                        function izveliesDaudz() {
-                        document.getElementById("start").style.visibility = 'collapse';
-                        let poga3 = document.createElement("button");
-                        poga3.innerHTML = 3;
-                        poga3.setAttribute('id', 3);
-                        poga3.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
-                        poga3.setAttribute('onclick', 'varduDaudz(this.id), sakt()');
-                        document.getElementById("izvele").appendChild(poga3);
-                        document.getElementById("rakstizvele").style.visibility = 'visible';
-                        let poga5 = document.createElement("button");
-                        poga5.innerHTML = 5;
-                        poga5.setAttribute('id', 5);
-                        poga5.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
-                        poga5.setAttribute('onclick', 'varduDaudz(this.id), sakt()');
-                        document.getElementById("izvele").appendChild(poga5);
-                        document.getElementById("rakstizvele").style.visibility = 'visible';
-                        let poga4 = document.createElement("button");
-                        poga4.innerHTML = 4;
-                        poga4.setAttribute('id', 4);
-                        poga4.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
-                        poga4.setAttribute('onclick', 'varduDaudz(this.id), sakt()');
-                        document.getElementById("izvele").appendChild(poga4);
-                        document.getElementById("rakstizvele").style.visibility = 'visible';
-                        }
-                       
-                        var countDownDate, spele;
-                        function sakt() {
-                                countDownDate = new Date().getTime();
-                                spele = setInterval(skaita, 1000);
-                        }
-                        function skaita() {
-                                let now = new Date().getTime();
-                        let distance = now - countDownDate;
-                        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                        document.getElementById("pulkstens").innerHTML = seconds + "s ";
-                        if (distance > 30000) {
-                        clearInterval(spele);
-                        document.getElementById("pulkstens").innerHTML = "Beidzās laiks";
-                        }
-                        }
-                        </script>
 
 
 
-                
+
+
 
                 <div class="w3-display-bottommiddle">
-                    <div class="w3-bar">
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" id="burt1" onclick="burts1();"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" id="burt2" onclick="burts2();"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" id="burt3" onclick="burts3();"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" id="burt8" onclick="burts8();"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" id="burt4" onclick="burts4();"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" id="burt5" onclick="burts5();"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" id="burt6" onclick="burts6();"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" id="burt7" onclick="burts7();"></button>
+                    <div class="w3-bar" style="width:400px;">
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt1" onclick="burts1();"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt2" onclick="burts2();"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt3" onclick="burts3();"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt8" onclick="burts8();"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt4" onclick="burts4();"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt5" onclick="burts5();"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt6" onclick="burts6();"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12%" id="burt7" onclick="burts7();"></button>
                     </div>
                 </div> 
-                        <script>
-                        const vowels = ['A', 'E', 'I', 'O', 'U'];
-                        const consonants = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'];
-                        function izveliesVardus() {
-                                    document.getElementById("burt1").innerHTML = vowels[Math.floor(Math.random() * 5)];
-                            document.getElementById("burt2").innerHTML = vowels[Math.floor(Math.random() * 5)];
-                            while (document.getElementById("burt2").innerHTML === document.getElementById("burt1").innerHTML) {
-                            document.getElementById("burt2").innerHTML = vowels[Math.floor(Math.random() * 5)];
-                            }
-                            document.getElementById("burt3").innerHTML = vowels[Math.floor(Math.random() * 5)];
-                            while (document.getElementById("burt3").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt3").innerHTML === document.getElementById("burt2").innerHTML) {
-                            document.getElementById("burt3").innerHTML = vowels[Math.floor(Math.random() * 5)];
-                            }
-                            document.getElementById("burt4").innerHTML = consonants[Math.floor(Math.random() * 21)];
-                            document.getElementById("burt5").innerHTML = consonants[Math.floor(Math.random() * 21)];
-                            while (document.getElementById("burt4").innerHTML === document.getElementById("burt5").innerHTML) {
-                            document.getElementById("burt5").innerHTML = consonants[Math.floor(Math.random() * 21)];
-                            }
-                            document.getElementById("burt6").innerHTML = consonants[Math.floor(Math.random() * 21)];
-                            while (document.getElementById("burt6").innerHTML === document.getElementById("burt4").innerHTML || document.getElementById("burt6").innerHTML === document.getElementById("burt5").innerHTML) {
-                            document.getElementById("burt6").innerHTML = consonants[Math.floor(Math.random() * 21)];
-                            }
-                            document.getElementById("burt7").innerHTML = consonants[Math.floor(Math.random() * 21)];
-                            while (document.getElementById("burt7").innerHTML === document.getElementById("burt4").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt5").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt6").innerHTML) {
-                            document.getElementById("burt7").innerHTML = consonants[Math.floor(Math.random() * 21)];
-                            }
-                            document.getElementById("burt8").innerHTML = vowels[Math.floor(Math.random() * 5)];
-                            while (document.getElementById("burt8").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt8").innerHTML === document.getElementById("burt2").innerHTML || document.getElementById("burt8").innerHTML === document.getElementById("burt3").innerHTML) {
-                            document.getElementById("burt8").innerHTML = vowels[Math.floor(Math.random() * 5)];
-                            }
-                        }
-                        
-                        </script>       
+
             </div>  
             <!-- About Section -->
             <div class="w3-display-container w3-margin"  style="height:400px;">
@@ -205,10 +103,114 @@
                     <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444"> 4.Sākot spēli laiks sāk skaitīties uz leju no 30 sekundēm.</div>
                     <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444"> 5. Jo vairāk vārdus veiksmīgi saliek, jo vairāk punkti.</div>
                 </div>       
-   </div>
+            </div>
 
             <!-- END PAGE CONTENT -->
         </div>
 
     </body>
 </html>
+<script>
+    function varduDaudz(id) {
+        let x = document.getElementById(id).innerHTML.toString();
+        console.log(x);
+        x = x * 5;
+        for (let i = 0; i < x; i++) {
+            let burtivarda = document.createElement("button");
+            if (i < 5) {
+                document.getElementById("vards").appendChild(burtivarda);
+                burtivarda.innerHTML = " __ ";
+            } else if (i < 10) {
+                document.getElementById("vards2").appendChild(burtivarda);
+                burtivarda.innerHTML = " __ ";
+            } else if (i < 15) {
+                document.getElementById("vards3").appendChild(burtivarda);
+                burtivarda.innerHTML = " __ ";
+            } else if (i < 20) {
+                document.getElementById("vards4").appendChild(burtivarda);
+                burtivarda.innerHTML = " __ ";
+            } else if (i < 25) {
+                document.getElementById("vards5").appendChild(burtivarda);
+                burtivarda.innerHTML = " __ ";
+            }
+            burtivarda.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
+        }
+
+        document.getElementById('izvele').style.visibility = 'collapse';
+        console.log(x);
+    }
+
+    function izveliesDaudz() {
+        document.getElementById("start").style.visibility = 'collapse';
+        let poga3 = document.createElement("button");
+        poga3.innerHTML = 3;
+        poga3.setAttribute('id', 3);
+        poga3.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
+        poga3.setAttribute('onclick', 'varduDaudz(this.id), sakt()');
+        document.getElementById("izvele").appendChild(poga3);
+        document.getElementById("rakstizvele").style.visibility = 'visible';
+        let poga5 = document.createElement("button");
+        poga5.innerHTML = 5;
+        poga5.setAttribute('id', 5);
+        poga5.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
+        poga5.setAttribute('onclick', 'varduDaudz(this.id), sakt()');
+        document.getElementById("izvele").appendChild(poga5);
+        document.getElementById("rakstizvele").style.visibility = 'visible';
+        let poga4 = document.createElement("button");
+        poga4.innerHTML = 4;
+        poga4.setAttribute('id', 4);
+        poga4.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
+        poga4.setAttribute('onclick', 'varduDaudz(this.id), sakt()');
+        document.getElementById("izvele").appendChild(poga4);
+        document.getElementById("rakstizvele").style.visibility = 'visible';
+    }
+
+    var countDownDate, spele;
+    function sakt() {
+        countDownDate = new Date().getTime();
+        spele = setInterval(skaita, 1000);
+    }
+    function skaita() {
+        let now = new Date().getTime();
+        let distance = now - countDownDate;
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.getElementById("pulkstens").innerHTML = seconds + "s ";
+        if (distance > 30000) {
+            clearInterval(spele);
+            document.getElementById("pulkstens").innerHTML = "Beidzās laiks";
+        }
+    }
+</script>
+<script>
+    const vowels = ['A', 'E', 'I', 'O', 'U'];
+    const consonants = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'];
+    function izveliesVardus() {
+        document.getElementById("burt1").innerHTML = vowels[Math.floor(Math.random() * 5)];
+        document.getElementById("burt2").innerHTML = vowels[Math.floor(Math.random() * 5)];
+        while (document.getElementById("burt2").innerHTML === document.getElementById("burt1").innerHTML) {
+            document.getElementById("burt2").innerHTML = vowels[Math.floor(Math.random() * 5)];
+        }
+        document.getElementById("burt3").innerHTML = vowels[Math.floor(Math.random() * 5)];
+        while (document.getElementById("burt3").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt3").innerHTML === document.getElementById("burt2").innerHTML) {
+            document.getElementById("burt3").innerHTML = vowels[Math.floor(Math.random() * 5)];
+        }
+        document.getElementById("burt4").innerHTML = consonants[Math.floor(Math.random() * 21)];
+        document.getElementById("burt5").innerHTML = consonants[Math.floor(Math.random() * 21)];
+        while (document.getElementById("burt4").innerHTML === document.getElementById("burt5").innerHTML) {
+            document.getElementById("burt5").innerHTML = consonants[Math.floor(Math.random() * 21)];
+        }
+        document.getElementById("burt6").innerHTML = consonants[Math.floor(Math.random() * 21)];
+        while (document.getElementById("burt6").innerHTML === document.getElementById("burt4").innerHTML || document.getElementById("burt6").innerHTML === document.getElementById("burt5").innerHTML) {
+            document.getElementById("burt6").innerHTML = consonants[Math.floor(Math.random() * 21)];
+        }
+        document.getElementById("burt7").innerHTML = consonants[Math.floor(Math.random() * 21)];
+        while (document.getElementById("burt7").innerHTML === document.getElementById("burt4").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt5").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt6").innerHTML) {
+            document.getElementById("burt7").innerHTML = consonants[Math.floor(Math.random() * 21)];
+        }
+        document.getElementById("burt8").innerHTML = vowels[Math.floor(Math.random() * 5)];
+        while (document.getElementById("burt8").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt8").innerHTML === document.getElementById("burt2").innerHTML || document.getElementById("burt8").innerHTML === document.getElementById("burt3").innerHTML) {
+            document.getElementById("burt8").innerHTML = vowels[Math.floor(Math.random() * 5)];
+        }
+    }
+
+</script>
