@@ -73,25 +73,18 @@
                 <div class="w3-display-topmiddle">
                     <h1 class="w3-text-white" style="text-shadow:1px 1px 0 #444" id="pulkstens">
                 </div>               
-
-
-
-
-
-
                 <div class="w3-display-bottommiddle">
-                    <div class="w3-bar" style="width:400px;">
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt1" onclick="burts1();"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt2" onclick="burts2();"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt3" onclick="burts3();"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt8" onclick="burts8();"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt4" onclick="burts4();"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt5" onclick="burts5();"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt6" onclick="burts6();"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12%" id="burt7" onclick="burts7();"></button>
+                    <div class="w3-bar">
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt1" onclick="burts1();"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt2" onclick="burts2();"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt3" onclick="burts3();"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt8" onclick="burts8();"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt4" onclick="burts4();"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt5" onclick="burts5();"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt6" onclick="burts6();"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt7" onclick="burts7();"></button>
                     </div>
                 </div> 
-
             </div>  
             <!-- About Section -->
             <div class="w3-display-container w3-margin"  style="height:400px;">
@@ -111,6 +104,7 @@
     </body>
 </html>
 <script>
+    
     function varduDaudz(id) {
         let x = document.getElementById(id).innerHTML.toString();
         console.log(x);
@@ -210,4 +204,12 @@
             document.getElementById("burt8").innerHTML = vowels[Math.floor(Math.random() * 5)];
         }
     }
+    function doesWordExist(word, wordArray) {
+        return wordArray.includes(word);
+    }
+    function filterShortWords(words) {
+        return words.filter(word => word.length < 9);
+    }
+    const vardi = filterShortWords(visivardi);
+    
 </script>
