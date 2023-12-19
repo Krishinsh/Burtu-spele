@@ -59,53 +59,90 @@
 
                 </div>
             </header>
-            <div class="w3-display-container" style="height:300px;" >
+            <div class="w3-display-container" style="height:500px;" >
                 <div class="w3-display-topmiddle" id="game">
-                    <button class="w3-button w3-padding w3-round-xlarge w3-xlarge w3-border w3-border-white w3-round-xlarge w3-ripple " id="start" onclick="izveliesVardus();">Sākt spēli</button>
-                    <div>
-                        <label for="vards" id="rakstizvele" style="visibility: collapse;">Izvelies vardu daudzumu </label>
+                    <button class="w3-button w3-padding w3-round-xlarge w3-xlarge w3-border w3-border-white w3-round-xlarge w3-ripple " id="start" onclick="izveliesVardus(), izveliesDaudz()">Sākt spēli</button>
+                    <div><label for="vards" id="rakstizvele" style="visibility: collapse;">Izvelies vardu daudzumu </label></div>
+                    <div id="izvele"></div>
+                        <div id="vards"></div>
+                        <div id="vards2"></div>
+                        <div id="vards3"></div>
+                        <div id="vards4"></div>
+                        <div id="vards5"></div>
 
-                        <div class="w3-bar  "  id= "vards">
-                          <script>
-                                   
-                                function izveliesVardus() {
-                                    document.getElementById("start").style.visibility = 'collapse';
-                                    let poga = document.createElement("button");
-                                    for (let i = 0; i < 3; i++) {
-                                        let poga = document.createElement("button");
-                                        poga.type = "w3-button";
-                                        poga.innerHTML = " " + (i + 3);
-                                        poga.setAttribute('id',"poga"+i);
-                                        poga.setAttribute('class',"button");
-                                        document.getElementById("rakstizvele").appendChild(poga);
-                                        console.log(poga.id);
-                                            poga.onclick=varduDaudz(poga.id);
-                                            
-                                        
-                                       
+
+
+
+
+                        <script>
+                            function varduDaudz(id) {
+                                let x = document.getElementById(id).innerHTML.toString();
+                                console.log(x);
+                                x = x * 5;
+
+
+
+                                for (let i = 0; i < x; i++) {
+                                    let burtivarda = document.createElement("button");
+                                           
+                                    if (i < 5) {
+                                        document.getElementById("vards").appendChild(burtivarda);
+                                        burtivarda.innerHTML = " __ ";
+                                    } else if (i < 10) {
+                                        document.getElementById("vards2").appendChild(burtivarda);
+                                        burtivarda.innerHTML = " __ ";
+                                    } else if (i < 15) {
+                                        document.getElementById("vards3").appendChild(burtivarda);
+                                        burtivarda.innerHTML = " __ ";
+                                    } else if (i < 20) {
+                                        document.getElementById("vards4").appendChild(burtivarda);
+                                        burtivarda.innerHTML = " __ ";
+                                    } else if (i < 25) {
+                                        document.getElementById("vards5").appendChild(burtivarda);
+                                        burtivarda.innerHTML = " __ ";
                                     }
+                                    burtivarda.setAttribute('class',"w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
                                     
-                                  
-                                    document.getElementById("rakstizvele").style.visibility = 'visible';
-                                    function varduDaudz() {
-                                       let x=document.getElementById(poga.id);
-                                    console.log(x);
-                                       
-                                 
-                                        for (let i = 0; i < x ; i++) {
-                                            let poga = document.createElement("button");
-                                            poga.type = "w3-button";
-                                            document.getElementById("vards").appendChild(poga);
-                                            poga.innerHTML = " test";
-
-                                        }
-
-                                    }
                                 }
-                            </script>
+                               
+                                document.getElementById('izvele').style.visibility = 'collapse';
+                                console.log(x);
+                            }
 
-                        </div>
-                    </div>
+                            function izveliesDaudz() {
+                                document.getElementById("start").style.visibility = 'collapse';
+                                let poga3 = document.createElement("button");
+                                poga3.innerHTML = 3;
+                                poga3.setAttribute('id', 3);
+                                poga3.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
+                                poga3.setAttribute('onclick', 'varduDaudz(this.id)');
+                                document.getElementById("izvele").appendChild(poga3);
+                                document.getElementById("rakstizvele").style.visibility = 'visible';
+
+                                let poga5 = document.createElement("button");
+                                poga5.innerHTML = 5;
+                                poga5.setAttribute('id', 5);
+                                poga5.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
+                                poga5.setAttribute('onclick', 'varduDaudz(this.id)');
+                                document.getElementById("izvele").appendChild(poga5);
+                                document.getElementById("rakstizvele").style.visibility = 'visible';
+
+                                let poga4 = document.createElement("button");
+                                poga4.innerHTML = 4;
+                                poga4.setAttribute('id', 4);
+                                poga4.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
+                                poga4.setAttribute('onclick', 'varduDaudz(this.id)');
+                                document.getElementById("izvele").appendChild(poga4);
+                                document.getElementById("rakstizvele").style.visibility = 'visible';
+                            }
+
+
+
+
+                        </script>
+
+             
+
                 </div>     
 
                 <div class="w3-display-bottommiddle">
