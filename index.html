@@ -66,7 +66,10 @@
                     <div id="izvele"></div>
                     <div id="vards"></div>
 
-                </div>  
+                </div> 
+                <div class="w3-display-middleright">
+                    <h1 class="w3-text-white" style="text-shadow:1px 1px 0 #444">Punkti:</h1><h1 class="w3-text-white" style="text-shadow:1px 1px 0 #444" id="punktini">    
+                </div>
                 <div class="w3-display-topmiddle">
                     <h1 class="w3-text-white" style="text-shadow:1px 1px 0 #444" id="pulkstens">
                 </div>               
@@ -102,11 +105,11 @@
     </body>
 </html>
 <script>
-    const burtuArray=[false,false,false,false,false];
-    const skArray=[false,false,false,false,false];
-    let x =["","","","",""];
-    const peckartas=[1,2,3,4,5];
-    let burtins0 =" " ;
+    const burtuArray = [false, false, false, false, false];
+    const skArray = [false, false, false, false, false];
+    let x = ["", "", "", "", ""];
+    const peckartas = [1, 2, 3, 4, 5];
+    let burtins0 = " ";
     let burtins1 = " ";
     let burtins2 = " ";
     let burtins3 = " ";
@@ -139,7 +142,7 @@
                 console.error('Error:', error.message);
             });
     function varduDaudz(id) {
-       
+
 
         for (let i = 0; i < 5; i++) {
             let burtivarda = document.createElement("button");
@@ -148,18 +151,18 @@
             burtivarda.innerHTML = " __ ";
             burtivarda.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
             burtivarda.setAttribute('id', 'burts' + i);
-            burtivarda.setAttribute('value',peckartas[i]);
+            burtivarda.setAttribute('value', peckartas[i]);
             burtivarda.onclick = () => {
                 burtivarda.innerHTML = " __ ";
-                  let k=document.getElementById('burts'+i).id.charAt(5);
-                  console.log(k);
-                burtuArray[k]=false;
-                skArray[k]=false;
+                let k = document.getElementById('burts' + i).id.charAt(5);
+                console.log(k);
+                burtuArray[k] = false;
+                skArray[k] = false;
             };
-                
-                
 
-           
+
+
+
         }
 
         document.getElementById('izvele').style.visibility = 'collapse';
@@ -241,7 +244,7 @@
         document.getElementById("burt7").innerHTML = burtiBiezi[Math.floor(Math.random() * 10)];
         while (document.getElementById("burt7").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt2").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt3").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt4").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt8").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt5").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt6").innerHTML) {
             document.getElementById("burt7").innerHTML = burtiBiezi[Math.floor(Math.random() * 10)];
-        }       
+        }
     }
     function burts(id) {
         if (burtuArray[0] === false) {
@@ -274,28 +277,28 @@
         const logs3 = document.getElementById('burts3').innerHTML;
         const logs4 = document.getElementById('burts4').innerHTML;
 
-        if (logs0 !== " __ " &&  skArray[0] === false) {
-            x[0]=logs0;
-             skArray[0]=true;
+        if (logs0 !== " __ " && skArray[0] === false) {
+            x[0] = logs0;
+            skArray[0] = true;
         }
         if (logs1 !== " __ " && skArray[1] === false) {
-            x[1]=logs1;
-            skArray[1]=true;
+            x[1] = logs1;
+            skArray[1] = true;
         }
         if (logs2 !== " __ " && skArray[2] === false) {
-            x[2]=logs2;
-            skArray[2]=true;
+            x[2] = logs2;
+            skArray[2] = true;
         }
         if (logs3 !== " __ " && skArray[3] === false) {
-            x[3]=logs3;
-            skArray[3]=true;
+            x[3] = logs3;
+            skArray[3] = true;
         }
         if (logs4 !== " __ " && skArray[4] === false) {
-            x[4]=logs4;
-            skArray[4]=true;
+            x[4] = logs4;
+            skArray[4] = true;
         }
         console.log('Button InnerHTML:', x);
-        lodzini = x[0]+x[1]+x[2]+x[3]+x[4];
+        lodzini = x[0] + x[1] + x[2] + x[3] + x[4];
         const existsInArray = doesWordExist(lodzini, vardKopa);
         function doesWordExist(word, wordArray) {
             return wordArray.includes(word);
@@ -304,11 +307,12 @@
             console.log(`${lodzini} ir`);
             punkti++;
             varduSkaits++;
-            for(let n=0; n<5; n++){
-                burtuArray[n]=false;
-                skArray[n]=false;
-                x[n]="";
+            for (let n = 0; n < 5; n++) {
+                burtuArray[n] = false;
+                skArray[n] = false;
+                x[n] = "";
             }
+            document.getElementById('punktini').innerHTML = punkti;
             lodzini = "";
             if (varduSkaits === varduDaudzums)
                 refresh();
@@ -345,8 +349,6 @@
     }
     function refresh() {
         punkti = punkti + varduDaudzums;
-        varduDaudzums = 0;
         varduSkaits = 0;
-        izveliesDaudz();
     }
 </script>
