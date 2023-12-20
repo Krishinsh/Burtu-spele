@@ -42,7 +42,7 @@
                 <i class="fa fa-user w3-xxlarge"></i>
                 <p>RULES</p>
             </a>
-            <a href="#Results" class="w3-bar-item w3-button w3-padding-large w3-hover-black">    
+            <a href="#results" class="w3-bar-item w3-button w3-padding-large w3-hover-black">    
                 <i class="fa fa-eye w3-xxlarge"></i>
                 <p>RESULTS</p>
             </a>
@@ -90,7 +90,7 @@
                 </div>
 
             </div>
-         
+
         </div>
         <div class="w3-display-container w3-margin"  style="height:300px;">
             <div class="w3-display-bottomright" id="rules">
@@ -102,7 +102,24 @@
                 <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444">5.Jo vairāk vārdus veiksmīgi saliek, jo vairāk punkti.</div>
             </div>       
         </div>
-
+        <div class="w3-display-container" style="height:300px;">
+            <div class="w3-display-middle" id="results" style="font-size:160%;">
+                <table>
+                    <tr>
+                        <th>Vards</th>
+                        <th>Punkti</th>
+                    </tr>
+                    <tr>
+                        <td>pirmais</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>otrais</td>
+                        <td>20</td>
+                    </tr>
+                </table>
+            </div>
+        </div>    
 
     </body>
 </html>
@@ -123,7 +140,7 @@
     let varduDaudzums = 0;
     let varduSkaits = 0;
     let punkti = 0;
-    
+
     async function readFileToArray(filePath) {
         try {
             const response = await fetch(filePath);
@@ -157,13 +174,13 @@
             burtivarda.setAttribute('value', peckartas[i]);
             burtivarda.onclick = () => {
                 burtivarda.innerHTML = " __ ";
-                  let k=document.getElementById('burts'+i).id.charAt(5);
-                  
-                burtuArray[k]=false;
-                skArray[k]=false;
+                let k = document.getElementById('burts' + i).id.charAt(5);
+
+                burtuArray[k] = false;
+                skArray[k] = false;
             };
 
-            varduDaudzums=parseInt(id);
+            varduDaudzums = parseInt(id);
 
 
         }
@@ -201,15 +218,15 @@
 
     var countDownDate, spele;
     function sakt() {
-        countDownDate = new Date().getTime()+61000;
+        countDownDate = new Date().getTime() + 61000;
         spele = setInterval(skaita, 1000);
     }
     function skaita() {
         let now = new Date().getTime();
-        let distance = countDownDate-now;
+        let distance = countDownDate - now;
         let seconds = Math.floor((distance % (1000 * 60)) / 1000);
         document.getElementById("pulkstens").innerHTML = seconds + "s ";
-        if (distance <0) {
+        if (distance < 0) {
             clearInterval(spele);
             document.getElementById("pulkstens").innerHTML = "Beidzās laiks";
         }
@@ -301,27 +318,27 @@
         lodzini = x[0] + x[1] + x[2] + x[3] + x[4];
         const existsInArray = doesWordExist(lodzini, vardKopa);
         function doesWordExist(word, wordArray) {
-           
+
             return wordArray.includes(word);
         }
         if (existsInArray) {
-             
+
             console.log(`${lodzini} ir`);
             punkti++;
             varduSkaits++;
-            for(let n=0; n<5; n++){
-                burtuArray[n]=false;
-                skArray[n]=false;
-                x[n]="";
-               document.getElementById('burts'+n).innerHTML=" __ ";
-                
+            for (let n = 0; n < 5; n++) {
+                burtuArray[n] = false;
+                skArray[n] = false;
+                x[n] = "";
+                document.getElementById('burts' + n).innerHTML = " __ ";
+
             }
-            document.getElementById('punktini').innerHTML ='Punkti:'+punkti;
+            document.getElementById('punktini').innerHTML = 'Punkti:' + punkti;
             lodzini = "";
             console.log(varduSkaits, varduDaudzums);
-            if (varduSkaits === varduDaudzums){
+            if (varduSkaits === varduDaudzums) {
                 refresh();
-            }           
+            }
         } else {
             console.log(`${lodzini} nav`);
         }
@@ -356,23 +373,23 @@
     function refresh() {
         punkti = punkti + varduDaudzums;
         varduSkaits = 0;
-        document.getElementById('punktini').innerHTML ='Punkti:'+punkti;
-        countDownDate=countDownDate+10000;
+        document.getElementById('punktini').innerHTML = 'Punkti:' + punkti;
+        countDownDate = countDownDate + 10000;
     }
-    function restart(){
-        l=0;
-        varduSkaits=0;
+    function restart() {
+        l = 0;
+        varduSkaits = 0;
         console.log(varduSkaits);
-        for(let n=0; n<5; n++){
-                burtuArray[n]=false;
-                skArray[n]=false;
-                x[n]="";
-                
-                document.getElementById("burts"+n).innerHTML="__";
-                
-            }
-            lodzini = "";
-            izveleBurtu();
-        
+        for (let n = 0; n < 5; n++) {
+            burtuArray[n] = false;
+            skArray[n] = false;
+            x[n] = "";
+
+            document.getElementById("burts" + n).innerHTML = "__";
+
+        }
+        lodzini = "";
+        izveleBurtu();
+
     }
 </script>
