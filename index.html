@@ -74,7 +74,7 @@
                     <h1 class="w3-text-white" style="text-shadow:1px 1px 0 #444" id="pulkstens">
                 </div>               
                 <div class="w3-display-middle">
-                    <div class="w3-bar" >
+                    <div class="w3-bar" id="bar" >
                         <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt1" onclick="burts(id, this)"></button>
                         <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt2" onclick="burts(id, this)"></button>
                         <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt3" onclick="burts(id, this)"></button>
@@ -124,6 +124,7 @@
     let varduDaudzums = 0;
     let varduSkaits = 0;
     let punkti = 0;
+    
     async function readFileToArray(filePath) {
         try {
             const response = await fetch(filePath);
@@ -304,9 +305,11 @@
         lodzini = x[0] + x[1] + x[2] + x[3] + x[4];
         const existsInArray = doesWordExist(lodzini, vardKopa);
         function doesWordExist(word, wordArray) {
+           
             return wordArray.includes(word);
         }
         if (existsInArray) {
+             
             console.log(`${lodzini} ir`);
             punkti++;
             varduSkaits++;
@@ -355,6 +358,7 @@
     function refresh() {
         punkti = punkti + varduDaudzums;
         varduSkaits = 0;
+        
     }
     function restart(){
         l=0;
@@ -365,7 +369,8 @@
                 skArray[n]=false;
                 x[n]="";
                 
-                document.getElementById("burts"+n).innerHTML="_";
+                document.getElementById("burts"+n).innerHTML="__";
+                
             }
             lodzini = "";
             izveleBurtu();
