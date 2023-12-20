@@ -103,7 +103,7 @@
             </div>       
         </div>
         <div class="w3-display-container" style="height:300px;">
-            <div class="w3-display-middle" id="results" style="font-size:160%;">
+            <div class="w3-display-middle" id="results" style="font-size:140%;">
                 <table>
                     <tr>
                         <th>Vards</th>
@@ -218,7 +218,7 @@
 
     var countDownDate, spele;
     function sakt() {
-        countDownDate = new Date().getTime() + 61000;
+        countDownDate = new Date().getTime() + 10000;
         spele = setInterval(skaita, 1000);
     }
     function skaita() {
@@ -229,6 +229,22 @@
         if (distance < 0) {
             clearInterval(spele);
             document.getElementById("pulkstens").innerHTML = "Beidzās laiks";
+            document.getElementById("burt1").disabled = true;
+            document.getElementById("burt2").disabled = true;
+            document.getElementById("burt3").disabled = true;
+            document.getElementById("burt4").disabled = true;
+            document.getElementById("burt5").disabled = true;
+            document.getElementById("burt6").disabled = true;
+            document.getElementById("burt7").disabled = true;
+            document.getElementById("burt8").disabled = true;
+            document.getElementById("burts0").disabled = true;
+            document.getElementById("burts1").disabled = true;
+            document.getElementById("burts2").disabled = true;
+            document.getElementById("burts3").disabled = true;
+            document.getElementById("burts4").disabled = true;
+            document.getElementById("burts5").disabled = true;
+            jaunaSpele();
+
         }
     }
     const burtiBiezi = ['a', 'e', 'i', 'o', 'r', 't', 'l', 'n', 's', 'c'];
@@ -390,6 +406,11 @@
         }
         lodzini = "";
         izveleBurtu();
-
+        function jaunaSpele() {
+            restart();
+            punkti = 0;
+            varduDaudzums = 0;
+            document.getElementById("start").style.visibility = 'visible';
+        }
     }
 </script>
