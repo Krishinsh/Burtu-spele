@@ -61,7 +61,7 @@
             </header>
             <div class="w3-display-container" style="height:400px;" >
                 <div class="w3-display-topmiddle" id="game">
-                    <button class="w3-button w3-padding w3-round-xlarge w3-xlarge w3-border w3-border-white w3-round-xlarge w3-ripple "  id="start" onclick="izveliesDaudz()">Sākt spēli</button>
+                    <button class="w3-button w3-padding w3-round-xlarge w3-xlarge w3-border w3-border-white w3-round-xlarge w3-ripple " style="visibility: visible;" id="start" onclick="izveliesDaudz()">Sākt spēli</button>
                     <div><label for="vards" id="rakstizvele" style="visibility: collapse;">Izvelies vardu daudzumu </label></div>
                     <div id="izvele"></div>
                     <div id="vards"></div>
@@ -141,6 +141,7 @@
     let varduSkaits = 0;
     let punkti = 0;
 
+
     async function readFileToArray(filePath) {
         try {
             const response = await fetch(filePath);
@@ -161,9 +162,10 @@
             .catch(error => {
                 console.error('Error:', error.message);
             });
+
     function varduDaudz(id) {
 
-
+        document.getElementById("rakstizvele").style.visibility = 'collapse';
         for (let i = 0; i < 5; i++) {
             let burtivarda = document.createElement("button");
 
@@ -242,8 +244,7 @@
             document.getElementById("burts2").disabled = true;
             document.getElementById("burts3").disabled = true;
             document.getElementById("burts4").disabled = true;
-            document.getElementById("burts5").disabled = true;
-            jaunaSpele();
+            location.reload();
 
         }
     }
@@ -406,11 +407,5 @@
         }
         lodzini = "";
         izveleBurtu();
-        function jaunaSpele() {
-            restart();
-            punkti = 0;
-            varduDaudzums = 0;
-            document.getElementById("start").style.visibility = 'visible';
-        }
     }
 </script>
