@@ -207,38 +207,37 @@
             document.getElementById("pulkstens").innerHTML = "Beidzās laiks";
         }
     }
-    const vowels = ['a', 'e', 'i', 'o', 'u'];
-    const consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
+    const burtiBiezi = ['a', 'e', 'i', 'o', 'r', 't', 'l', 'n', 's', 'c'];
     function izveliesVardus() {
         document.getElementById("burt1").innerHTML = burtins3;
         document.getElementById("burt2").innerHTML = burtins0;
         while (document.getElementById("burt2").innerHTML === document.getElementById("burt1").innerHTML) {
-            document.getElementById("burt2").innerHTML = vowels[Math.floor(Math.random() * 5)];
+            document.getElementById("burt2").innerHTML = burtiBiezi[Math.floor(Math.random() * 10)];
         }
         document.getElementById("burt3").innerHTML = burtins2;
         while (document.getElementById("burt3").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt3").innerHTML === document.getElementById("burt2").innerHTML) {
-            document.getElementById("burt3").innerHTML = vowels[Math.floor(Math.random() * 5)];
-        }
-        document.getElementById("burt4").innerHTML = burtins4;
-        while (document.getElementById("burt4").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt4").innerHTML === document.getElementById("burt2").innerHTML || document.getElementById("burt4").innerHTML === document.getElementById("burt3").innerHTML || document.getElementById("burt4").innerHTML === document.getElementById("burt8").innerHTML) {
-            document.getElementById("burt4").innerHTML = vowels[Math.floor(Math.random() * 5)];
-        }
-        document.getElementById("burt5").innerHTML = consonants[Math.floor(Math.random() * 21)];
-        while (document.getElementById("burt5").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt5").innerHTML === document.getElementById("burt2").innerHTML || document.getElementById("burt5").innerHTML === document.getElementById("burt3").innerHTML || document.getElementById("burt5").innerHTML === document.getElementById("burt4").innerHTML || document.getElementById("burt5").innerHTML === document.getElementById("burt8").innerHTML) {
-            document.getElementById("burt5").innerHTML = consonants[Math.floor(Math.random() * 21)];
-        }
-        document.getElementById("burt6").innerHTML = consonants[Math.floor(Math.random() * 21)];
-        while (document.getElementById("burt6").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt6").innerHTML === document.getElementById("burt2").innerHTML || document.getElementById("burt6").innerHTML === document.getElementById("burt3").innerHTML || document.getElementById("burt6").innerHTML === document.getElementById("burt4").innerHTML || document.getElementById("burt6").innerHTML === document.getElementById("burt8").innerHTML || document.getElementById("burt6").innerHTML === document.getElementById("burt5").innerHTML) {
-            document.getElementById("burt6").innerHTML = consonants[Math.floor(Math.random() * 21)];
-        }
-        document.getElementById("burt7").innerHTML = consonants[Math.floor(Math.random() * 21)];
-        while (document.getElementById("burt7").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt2").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt3").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt4").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt8").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt5").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt6").innerHTML) {
-            document.getElementById("burt7").innerHTML = consonants[Math.floor(Math.random() * 21)];
+            document.getElementById("burt3").innerHTML = burtiBiezi[Math.floor(Math.random() * 10)];
         }
         document.getElementById("burt8").innerHTML = burtins1;
         while (document.getElementById("burt8").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt8").innerHTML === document.getElementById("burt2").innerHTML || document.getElementById("burt8").innerHTML === document.getElementById("burt3").innerHTML) {
-            document.getElementById("burt8").innerHTML = vowels[Math.floor(Math.random() * 5)];
+            document.getElementById("burt8").innerHTML = burtiBiezi[Math.floor(Math.random() * 10)];
         }
+        document.getElementById("burt4").innerHTML = burtins4;
+        while (document.getElementById("burt4").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt4").innerHTML === document.getElementById("burt2").innerHTML || document.getElementById("burt4").innerHTML === document.getElementById("burt3").innerHTML || document.getElementById("burt4").innerHTML === document.getElementById("burt8").innerHTML) {
+            document.getElementById("burt4").innerHTML = burtiBiezi[Math.floor(Math.random() * 10)];
+        }
+        document.getElementById("burt5").innerHTML = burtiBiezi[Math.floor(Math.random() * 10)];
+        while (document.getElementById("burt5").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt5").innerHTML === document.getElementById("burt2").innerHTML || document.getElementById("burt5").innerHTML === document.getElementById("burt3").innerHTML || document.getElementById("burt5").innerHTML === document.getElementById("burt4").innerHTML || document.getElementById("burt5").innerHTML === document.getElementById("burt8").innerHTML) {
+            document.getElementById("burt5").innerHTML = burtiBiezi[Math.floor(Math.random() * 10)];
+        }
+        document.getElementById("burt6").innerHTML = burtiBiezi[Math.floor(Math.random() * 10)];
+        while (document.getElementById("burt6").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt6").innerHTML === document.getElementById("burt2").innerHTML || document.getElementById("burt6").innerHTML === document.getElementById("burt3").innerHTML || document.getElementById("burt6").innerHTML === document.getElementById("burt4").innerHTML || document.getElementById("burt6").innerHTML === document.getElementById("burt8").innerHTML || document.getElementById("burt6").innerHTML === document.getElementById("burt5").innerHTML) {
+            document.getElementById("burt6").innerHTML = burtiBiezi[Math.floor(Math.random() * 10)];
+        }
+        document.getElementById("burt7").innerHTML = burtiBiezi[Math.floor(Math.random() * 10)];
+        while (document.getElementById("burt7").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt2").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt3").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt4").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt8").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt5").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt6").innerHTML) {
+            document.getElementById("burt7").innerHTML = burtiBiezi[Math.floor(Math.random() * 10)];
+        }       
     }
 
     let x = "";
@@ -314,8 +313,8 @@
             burts3 = false;
             burts4 = false;
             burts5 = false;
-            sk=0;
-            x="";
+            sk = 0;
+            x = "";
             lodzini = "";
             if (varduSkaits === varduDaudzums)
                 refresh();
@@ -325,15 +324,13 @@
         console.log(punkti);
     }
     function izveleBurtu() {
-        while (varduDaudzums > l) {
-            while(burtins0 != burtins1 && burtins0 != burtins2 && burtins0 != burtins3 && burtins0 != burtins4 && burtins1 != burtins2 && burtins1 != burtins3 && burtins1 != burtins4 && burtins0 != burtins4)
+        while (10 > l) {
             randomVards = vardKopa[Math.floor(Math.random() * 5757)];
             burtins0 = randomVards.charAt(0);
             burtins1 = randomVards.charAt(1);
             burtins2 = randomVards.charAt(2);
             burtins3 = randomVards.charAt(3);
             burtins4 = randomVards.charAt(4);
-
             console.log(randomVards, burtins0, burtins1, burtins2, burtins3, burtins4);
             let resultArray0 = filterWordsByLetter(vardKopa, burtins0);
             let resultArray1 = filterWordsByLetter(resultArray0, burtins1);
@@ -341,7 +338,7 @@
             let resultArray3 = filterWordsByLetter(resultArray2, burtins3);
             let resultArray4 = filterWordsByLetter(resultArray3, burtins4);
             l = resultArray4.length;
-            console.log(resultArray4, l, burtins3);
+            console.log(resultArray4, l);
         }
         izveliesVardus();
     }
