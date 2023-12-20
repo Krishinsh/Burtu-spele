@@ -105,15 +105,37 @@
     </body>
 </html>
 <script>
-    function clear(id){
-        console.log(id);
-        document.getElementById(id).innerHTML.toString=(" __ ");
-    }
-    const visivardi = ["nez", "rainersrudz", "regnarsrudz", "kautkas", "haha", "aaa"];
-    function varduDaudz(kk) {
-        let x = document.getElementById(kk).innerHTML.toString();
-        
-           
+     let burts1 = false;
+    let burts2 = false;
+    let burts3 = false;
+    let burts4 = false;
+    let burts5 = false;
+    
+    const filePath = 'vardi5.txt';
+    async function readFileToArray(filePath) {
+        try {
+            const response = await fetch(filePath);
+            const data = await response.text();
+            const wordsArray = data.split('\n').map(word => word.trim());
+            return wordsArray;
+        } catch (error) {
+            console.error('Error reading file:', error.message);
+            return [];
+        }
+    }   
+    let vardKopa = [];
+    readFileToArray(filePath)
+            .then(wordsArray => {
+                vardKopa = wordsArray;
+                console.log('Array of words (vardKopa):', vardKopa);
+            })
+            .catch(error => {
+                console.error('Error:', error.message);
+            });
+    function varduDaudz(id) {
+        let x = document.getElementById(id).innerHTML.toString();
+        console.log(x);
+
         for (let i = 0; i < 5; i++) {
             let burtivarda = document.createElement("button");
 
@@ -121,7 +143,12 @@
             burtivarda.innerHTML = " __ ";
             burtivarda.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
             burtivarda.setAttribute('id', 'burts' + i);
-            burtivarda.setAttribute('onclick','clear(this.id)');
+            //burtivarda.setAttribute('onclick','clear(this.id)');
+            burtivarda.onclick=()=>{
+                burtivarda.innerHTML=" __ ";
+                let k= document.getElementById(id).innerHTML;
+               
+            }
         }
 
         document.getElementById('izvele').style.visibility = 'collapse';
@@ -137,19 +164,21 @@
         poga3.setAttribute('onclick', 'varduDaudz(this.id), sakt()');
         document.getElementById("izvele").appendChild(poga3);
         document.getElementById("rakstizvele").style.visibility = 'visible';
-        let poga5 = document.createElement("button");
-        poga5.innerHTML = 5;
-        poga5.setAttribute('id', 5);
-        poga5.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
-        poga5.setAttribute('onclick', 'varduDaudz(this.id), sakt()');
-        document.getElementById("izvele").appendChild(poga5);
-        document.getElementById("rakstizvele").style.visibility = 'visible';
+        
         let poga4 = document.createElement("button");
         poga4.innerHTML = 4;
         poga4.setAttribute('id', 4);
         poga4.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
         poga4.setAttribute('onclick', 'varduDaudz(this.id), sakt()');
         document.getElementById("izvele").appendChild(poga4);
+        document.getElementById("rakstizvele").style.visibility = 'visible';
+        
+        let poga5 = document.createElement("button");
+        poga5.innerHTML = 5;
+        poga5.setAttribute('id', 5);
+        poga5.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
+        poga5.setAttribute('onclick', 'varduDaudz(this.id), sakt()');
+        document.getElementById("izvele").appendChild(poga5);
         document.getElementById("rakstizvele").style.visibility = 'visible';
     }
 
@@ -198,18 +227,7 @@
             document.getElementById("burt8").innerHTML = vowels[Math.floor(Math.random() * 5)];
         }
     }
-    function doesWordExist(word, wordArray) {
-        return wordArray.includes(word);
-    }
-    const vvardi = filterShortWords(visivardi);
-    let burts1 = false;
-    let burts2 = false;
-    let burts3 = false;
-    let burts4 = false;
-    let burts5 = false;
-    let burts6 = false;
-    let burts7 = false;
-    let burts8 = false;
+   
     let x = "";
     let sk = 0;
     function burts(id) {
@@ -237,60 +255,47 @@
                 }
             }
         }
-    }
-    const logs0 = document.getElementById('burts0').innerHTML;
-    const logs1 = document.getElementById('burts1').innerHTML;
-    const logs2 = document.getElementById('burts2').innerHTML;
-    const logs3 = document.getElementById('burts3').innerHTML;
-    const logs4 = document.getElementById('burts4').innerHTML;
-    const logs5 = document.getElementById('burts5').innerHTML;
-    const logs6 = document.getElementById('burts6').innerHTML;
-    const logs7 = document.getElementById('burts7').innerHTML;
-    if (logs0 !== " __ " && sk === 0) {
-        x = x + logs0;
-        sk++;
-    }
-    if (logs1 !== " __ " && sk === 1) {
-        x = x + logs1;
-        sk++;
-    }
-    if (logs2 !== " __ " && sk === 2) {
-        x = x + logs2;
-        sk++;
-    }
-    if (logs3 !== " __ " && sk === 3) {
-        x = x + logs3;
-        sk++;
-    }
-    if (logs4 !== " __ " && sk === 4) {
-        x = x + logs4;
-        sk++;
-    }
-    if (logs5 !== " __ " && sk === 5) {
-        x = x + logs5;
-        sk++;
-    }
-    if (logs6 !== " __ " && sk === 6) {
-        x = x + logs6;
-        sk++;
-    }
-    if (logs7 !== " __ " && sk === 7) {
-        x = x + logs7;
-        sk++;
-    }
-    console.log('Button InnerHTML:', x);
-    lodzini = x;
-    const existsInArray = doesWordExist(lodzini, vvardi);
-    if (existsInArray) {
-        console.log(`${lodzini} ir`);
-    } else {
-        console.log(`${lodzini} nav`);
-    }
+        const logs0x = document.getElementById('burts0');
+        const logs1x = document.getElementById('burts1');
+        const logs2x = document.getElementById('burts2');
+        const logs3x = document.getElementById('burts3');
+        const logs4x = document.getElementById('burts4');
+        const logs0 = logs0x.innerHTML;
+        const logs1 = logs1x.innerHTML;
+        const logs2 = logs2x.innerHTML;
+        const logs3 = logs3x.innerHTML;
+        const logs4 = logs4x.innerHTML;
 
-    function filterShortWords(words) {
-        return words.filter(word => word.length < 6);
+        if (logs0 !== " __ " && sk === 0) {
+            x = x + logs0;
+            sk++;
+        }
+        if (logs1 !== " __ " && sk === 1) {
+            x = x + logs1;
+            sk++;
+        }
+        if (logs2 !== " __ " && sk === 2) {
+            x = x + logs2;
+            sk++;
+        }
+        if (logs3 !== " __ " && sk === 3) {
+            x = x + logs3;
+            sk++;
+        }
+        if (logs4 !== " __ " && sk === 4) {
+            x = x + logs4;
+            sk++;
+        }
+        console.log('Button InnerHTML:', x);
+        lodzini = x;
+        const existsInArray = doesWordExist(lodzini, vardKopa);
+        function doesWordExist(word, wordArray) {
+            return wordArray.includes(word);
+        }
+        if (existsInArray) {
+            console.log(`${lodzini} ir`);
+        } else {
+            console.log(`${lodzini} nav`);
+        }
     }
-    const shortWords = filterShortWords(wordsArray);
-    console.log(shortWords);
-
 </script>
