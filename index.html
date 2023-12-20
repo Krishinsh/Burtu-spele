@@ -104,7 +104,27 @@
     </body>
 </html>
 <script>
-    const visivardi = ["nez", "rainersrudz", "regnarsrudz", "kautkas", "haha", "aaa"];
+    const filePath = 'vardi5.txt';
+    async function readFileToArray(filePath) {
+        try {
+            const response = await fetch(filePath);
+            const data = await response.text();
+            const wordsArray = data.split('\n').map(word => word.trim());
+            return wordsArray;
+        } catch (error) {
+            console.error('Error reading file:', error.message);
+            return [];
+        }
+    }   
+    let vardKopa = [];
+    readFileToArray(filePath)
+            .then(wordsArray => {
+                vardKopa = wordsArray;
+                console.log('Array of words (vardKopa):', vardKopa);
+            })
+            .catch(error => {
+                console.error('Error:', error.message);
+            });
     function varduDaudz(id) {
         let x = document.getElementById(id).innerHTML.toString();
         console.log(x);
@@ -131,6 +151,7 @@
         poga3.setAttribute('onclick', 'varduDaudz(this.id), sakt()');
         document.getElementById("izvele").appendChild(poga3);
         document.getElementById("rakstizvele").style.visibility = 'visible';
+        
         let poga4 = document.createElement("button");
         poga4.innerHTML = 4;
         poga4.setAttribute('id', 4);
@@ -138,6 +159,7 @@
         poga4.setAttribute('onclick', 'varduDaudz(this.id), sakt()');
         document.getElementById("izvele").appendChild(poga4);
         document.getElementById("rakstizvele").style.visibility = 'visible';
+        
         let poga5 = document.createElement("button");
         poga5.innerHTML = 5;
         poga5.setAttribute('id', 5);
@@ -192,18 +214,11 @@
             document.getElementById("burt8").innerHTML = vowels[Math.floor(Math.random() * 5)];
         }
     }
-    function doesWordExist(word, wordArray) {
-        return wordArray.includes(word);
-    }
-    const vvardi = filterShortWords(visivardi);
     let burts1 = false;
     let burts2 = false;
     let burts3 = false;
     let burts4 = false;
     let burts5 = false;
-    let burts6 = false;
-    let burts7 = false;
-    let burts8 = false;
     let x = "";
     let sk = 0;
     function burts(id) {
@@ -264,15 +279,14 @@
         }
         console.log('Button InnerHTML:', x);
         lodzini = x;
-        const existsInArray = doesWordExist(lodzini, vvardi);
+        const existsInArray = doesWordExist(lodzini, vardKopa);
+        function doesWordExist(word, wordArray) {
+            return wordArray.includes(word);
+        }
         if (existsInArray) {
             console.log(`${lodzini} ir`);
         } else {
             console.log(`${lodzini} nav`);
         }
     }
-    function filterShortWords(words) {
-        return words.filter(word => word.length < 6);
-    }
-
 </script>
