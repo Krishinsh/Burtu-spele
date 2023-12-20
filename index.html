@@ -102,12 +102,9 @@
     </body>
 </html>
 <script>
-    let burts1 = false;
-    let burts2 = false;
-    let burts3 = false;
-    let burts4 = false;
-    let burts5 = false;
-    let burtins0 = " ";
+    const burtuArray=[false,false,false,false,false];
+    const peckartas=[1,2,3,4,5];
+    let burtins0 =" " ;
     let burtins1 = " ";
     let burtins2 = " ";
     let burtins3 = " ";
@@ -140,8 +137,7 @@
                 console.error('Error:', error.message);
             });
     function varduDaudz(id) {
-        let x = document.getElementById(id).innerHTML.toString();
-        console.log(x);
+       
 
         for (let i = 0; i < 5; i++) {
             let burtivarda = document.createElement("button");
@@ -150,12 +146,17 @@
             burtivarda.innerHTML = " __ ";
             burtivarda.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
             burtivarda.setAttribute('id', 'burts' + i);
-            //burtivarda.setAttribute('onclick','clear(this.id)');
+            burtivarda.setAttribute('value',peckartas[i]);
             burtivarda.onclick = () => {
                 burtivarda.innerHTML = " __ ";
-                let k = document.getElementById(id).innerHTML;
-
+                  let k=document.getElementById('burts'+i).id.charAt(5);
+                  console.log(k);
+                burtuArray[k]=false;
             };
+                
+                
+
+           
         }
 
         document.getElementById('izvele').style.visibility = 'collapse';
@@ -244,25 +245,25 @@
     let x = "";
     let sk = 0;
     function burts(id) {
-        if (burts1 === false) {
+        if (burtuArray[0] === false) {
             document.getElementById('burts0').innerHTML = document.getElementById(id).innerHTML;
-            burts1 = true;
+            burtuArray[0] = true;
         } else {
-            if (burts2 === false) {
+            if (burtuArray[1] === false) {
                 document.getElementById('burts1').innerHTML = document.getElementById(id).innerHTML;
-                burts2 = true;
+                burtuArray[1] = true;
             } else {
-                if (burts3 === false) {
+                if (burtuArray[2] === false) {
                     document.getElementById('burts2').innerHTML = document.getElementById(id).innerHTML;
-                    burts3 = true;
+                    burtuArray[2] = true;
                 } else {
-                    if (burts4 === false) {
+                    if (burtuArray[3] === false) {
                         document.getElementById('burts3').innerHTML = document.getElementById(id).innerHTML;
-                        burts4 = true;
+                        burtuArray[3] = true;
                     } else {
-                        if (burts5 === false) {
+                        if (burtuArray[4] === false) {
                             document.getElementById('burts4').innerHTML = document.getElementById(id).innerHTML;
-                            burts5 = true;
+                            burtuArray[4] = true;
                         }
                     }
                 }
