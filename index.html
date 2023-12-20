@@ -61,14 +61,11 @@
             </header>
             <div class="w3-display-container" style="height:400px;" >
                 <div class="w3-display-topmiddle" id="game">
-                    <button class="w3-button w3-padding w3-round-xlarge w3-xlarge w3-border w3-border-white w3-round-xlarge w3-ripple "  id="start" onclick="izveliesVardus(), izveliesDaudz()"><img src="">Sākt spēli</button>
+                    <button class="w3-button w3-padding w3-round-xlarge w3-xlarge w3-border w3-border-white w3-round-xlarge w3-ripple "  id="start" onclick="izveliesVardus(), izveliesDaudz()">Sākt spēli</button>
                     <div><label for="vards" id="rakstizvele" style="visibility: collapse;">Izvelies vardu daudzumu </label></div>
                     <div id="izvele"></div>
                     <div id="vards"></div>
-                    <div id="vards2"></div>
-                    <div id="vards3"></div>
-                    <div id="vards4"></div>
-                    <div id="vards5"></div>
+                   
                 </div>  
                 <div class="w3-display-topmiddle">
                     <h1 class="w3-text-white" style="text-shadow:1px 1px 0 #444" id="pulkstens">
@@ -86,7 +83,7 @@
                        
                       
                 </div> 
-                  <div class="w3-right "> <button class="w3-padding-16 w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="reset" onclick="reset();"></button></div>  
+                  
                  </div>
                 
             </div>  
@@ -108,11 +105,14 @@
     </body>
 </html>
 <script>
+    function clear(id){
+        document.getElementById(id).innerHTML.toString=(" __ ");
+    }
     const visivardi = ["nez", "rainersrudz", "regnarsrudz", "kautkas", "haha", "aaa"];
     function varduDaudz(id) {
         let x = document.getElementById(id).innerHTML.toString();
         console.log(x);
-
+           
         for (let i = 0; i < 5; i++) {
             let burtivarda = document.createElement("button");
 
@@ -120,6 +120,7 @@
             burtivarda.innerHTML = " __ ";
             burtivarda.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
             burtivarda.setAttribute('id', 'burts' + i);
+            burtivarda.setAttribute('onclick',clear(id,this));
         }
 
         document.getElementById('izvele').style.visibility = 'collapse';
