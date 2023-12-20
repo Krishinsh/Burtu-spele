@@ -73,25 +73,18 @@
                 <div class="w3-display-topmiddle">
                     <h1 class="w3-text-white" style="text-shadow:1px 1px 0 #444" id="pulkstens">
                 </div>               
-
-
-
-
-
-
                 <div class="w3-display-bottommiddle">
-                    <div class="w3-bar" style="width:400px;">
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt1" onclick="burts(id,this);"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt2" onclick="burts(id,this);"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt3" onclick="burts(id,this);"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt8" onclick="burts(id,this);"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt4" onclick="burts(id,this);"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt5" onclick="burts(id,this);"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12.5%" id="burt6" onclick="burts(id,this);"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="width:12%" id="burt7" onclick="burts(id,this);"></button>
+                    <div class="w3-bar">
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt1" onclick="burts(id, this);"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt2" onclick="burts(id, this);"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt3" onclick="burts(id, this);"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt8" onclick="burts(id, this);"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt4" onclick="burts(id, this);"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt5" onclick="burts(id, this);"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt6" onclick="burts(id, this);"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt7" onclick="burts(id, this);"></button>
                     </div>
                 </div> 
-
             </div>  
             <!-- About Section -->
             <div class="w3-display-container w3-margin"  style="height:400px;">
@@ -111,22 +104,23 @@
     </body>
 </html>
 <script>
-   
+    const visivardi = ["nez", "rainersrudz", "regnarsrudz", "kautkas", "haha"];
+    const lodzini = 'nez';
     function varduDaudz(id) {
         let x = document.getElementById(id).innerHTML.toString();
         console.log(x);
-     
+
         for (let i = 0; i < 5; i++) {
             let burtivarda = document.createElement("button");
-            
-                document.getElementById("vards").appendChild(burtivarda);
-                burtivarda.innerHTML = " __ ";
-                       burtivarda.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
-                       burtivarda.setAttribute('id','burts'+i);
+
+            document.getElementById("vards").appendChild(burtivarda);
+            burtivarda.innerHTML = " __ ";
+            burtivarda.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
+            burtivarda.setAttribute('id', 'burts' + i);
         }
 
         document.getElementById('izvele').style.visibility = 'collapse';
-  
+
     }
 
     function izveliesDaudz() {
@@ -199,33 +193,72 @@
             document.getElementById("burt8").innerHTML = vowels[Math.floor(Math.random() * 5)];
         }
     }
-    function burts(id){
-        
-                   
-      document.getElementById('burts0').innerHTML= document.getElementById(id).innerHTML;
-          
-          
-                document.getElementById('burts1').innerHTML= document.getElementById(id).innerHTML;
-      
-          
-                document.getElementById('burts2').innerHTML= document.getElementById(id).innerHTML;
-         
-            
-                document.getElementById('burts3').innerHTML= document.getElementById(id).innerHTML;
-        
-         
-                document.getElementById('burts4').innerHTML= document.getElementById(id).innerHTML;
-           
- 
-     
-    
-           
-          
-      
- 
-    
-     
- 
+
+    function filterShortWords(words) {
+        return words.filter(word => word.length < 9);
     }
-  
+
+    function doesWordExist(word, wordArray) {
+        return wordArray.includes(word);
+    }
+    const vvardi = filterShortWords(visivardi);
+    const existsInArray = doesWordExist(lodzini, vvardi);
+    if (existsInArray) {
+        console.log(`${lodzini} ir`);
+    } else {
+        console.log(`${lodzini} nav`);
+    }
+    let burts1 = false;
+    let burts2 = false;
+    let burts3 = false;
+    let burts4 = false;
+    let burts5 = false;
+    let burts6 = false;
+    let burts7 = false;
+    let burts8 = false;
+    function burts(id) {
+        if (burts1 === false) {
+            document.getElementById('burts0').innerHTML = document.getElementById(id).innerHTML;
+            burts1 = true;
+        } else {
+            if (burts2 === false) {
+                document.getElementById('burts1').innerHTML = document.getElementById(id).innerHTML;
+                burts2 = true;
+            } else {
+                if (burts3 === false) {
+                    document.getElementById('burts2').innerHTML = document.getElementById(id).innerHTML;
+                    burts3 = true;
+                } else {
+                    if (burts4 === false) {
+                        document.getElementById('burts3').innerHTML = document.getElementById(id).innerHTML;
+                        burts4 = true;
+                    } else {
+                        if (burts5 === false) {
+                            document.getElementById('burts4').innerHTML = document.getElementById(id).innerHTML;
+                            burts5 = true;
+                        } else {
+                            if (burts6 === false) {
+                                document.getElementById('burts5').innerHTML = document.getElementById(id).innerHTML;
+                                burts6 = true;
+                            } else {
+                                if (burts7 === false) {
+                                    document.getElementById('burts6').innerHTML = document.getElementById(id).innerHTML;
+                                    burts7 = true;
+                                } else {
+                                    if (burts8 === false) {
+                                        document.getElementById('burts7').innerHTML = document.getElementById(id).innerHTML;
+                                        burts8 = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+
+
 </script>
