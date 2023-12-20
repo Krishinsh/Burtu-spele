@@ -83,7 +83,7 @@
                     </div>
                 </div> 
                 <div class="w3-display-bottommiddle">
-                    <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="height:100px; width: 200px"  id="restart" onclick="izveleBurtu()">NOMAINĪT BURTUS</button>
+                    <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="height:100px; width: 200px"  id="restart" onclick="restart()">NOMAINĪT BURTUS</button>
                 </div>
 
             </div>
@@ -351,5 +351,17 @@
         varduDaudzums = 0;
         varduSkaits = 0;
         izveliesDaudz();
+    }
+    function restart(){
+        varduSkaits=0;
+        console.log(varduSkaits);
+        for(let n=0; n<5; n++){
+                burtuArray[n]=false;
+                skArray[n]=false;
+                x[n]="";
+            }
+            lodzini = "";
+            
+        
     }
 </script>
