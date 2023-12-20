@@ -61,11 +61,11 @@
             </header>
             <div class="w3-display-container" style="height:400px;" >
                 <div class="w3-display-topmiddle" id="game">
-                    <button class="w3-button w3-padding w3-round-xlarge w3-xlarge w3-border w3-border-white w3-round-xlarge w3-ripple "  id="start" onclick="izveliesVardus(), izveliesDaudz()">Sākt spēli</button>
+                    <button class="w3-button w3-padding w3-round-xlarge w3-xlarge w3-border w3-border-white w3-round-xlarge w3-ripple "  id="start" onclick="izveliesDaudz()">Sākt spēli</button>
                     <div><label for="vards" id="rakstizvele" style="visibility: collapse;">Izvelies vardu daudzumu </label></div>
                     <div id="izvele"></div>
                     <div id="vards"></div>
-                   
+
                 </div>  
                 <div class="w3-display-topmiddle">
                     <h1 class="w3-text-white" style="text-shadow:1px 1px 0 #444" id="pulkstens">
@@ -82,36 +82,42 @@
                         <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt7" onclick="burts(id, this)"></button>
                     </div>
                 </div> 
-                  
-                 </div>
-                
-            </div>  
-            <!-- About Section -->
-            <div class="w3-display-container w3-margin"  style="height:300px;">
-                <div class="w3-display-bottomleft w3-margin-left" id="rules">
-                    <div class="w3-xxlarge" style="text-shadow:1px 1px 0 #444">NOTEIKUMI</div>
-                    <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444" >1. Spēlētājs izvēlas cik vārdus minēs 3,4 vai 5.</div>
-                    <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444">2. Tiek iedoti 8 burti no kuriem jāveido vārdi.</div>
-                    <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444"> 3.Pēc katriem uzminētiem vārdiem nomainas burti un jāmin jauni vārdi.</div>
-                    <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444"> 4.Sākot spēli laiks sāk skaitīties uz leju no 30 sekundēm.</div>
-                    <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444"> 5. Jo vairāk vārdus veiksmīgi saliek, jo vairāk punkti.</div>
-                </div>       
+
             </div>
 
-            <!-- END PAGE CONTENT -->
+        </div>  
+        <!-- About Section -->
+        <div class="w3-display-container w3-margin"  style="height:300px;">
+            <div class="w3-display-bottomleft w3-margin-left" id="rules">
+                <div class="w3-xxlarge" style="text-shadow:1px 1px 0 #444">NOTEIKUMI</div>
+                <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444" >1. Spēlētājs izvēlas cik vārdus minēs 3,4 vai 5.</div>
+                <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444">2. Tiek iedoti 8 burti no kuriem jāveido vārdi.</div>
+                <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444"> 3.Pēc katriem uzminētiem vārdiem nomainas burti un jāmin jauni vārdi.</div>
+                <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444"> 4.Sākot spēli laiks sāk skaitīties uz leju no 30 sekundēm.</div>
+                <div class="w3-xlarge" style="text-shadow:1px 1px 0 #444"> 5. Jo vairāk vārdus veiksmīgi saliek, jo vairāk punkti.</div>
+            </div>       
         </div>
+
 
     </body>
 </html>
 <script>
-     let burts1 = false;
+    let burts1 = false;
     let burts2 = false;
     let burts3 = false;
     let burts4 = false;
     let burts5 = false;
-    
+    let burtins0 = " ";
+    let burtins1 = " ";
+    let burtins2 = " ";
+    let burtins3 = " ";
+    let burtins4 = " ";
+    let randomVards = " ";
+    let atlase1 = [];
+    let l = 0;
     const filePath = 'vardi5.txt';
     let varduDaudzums = 0;
+    let varduSkaits = 0;
     let punkti = 0;
     async function readFileToArray(filePath) {
         try {
@@ -145,11 +151,11 @@
             burtivarda.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
             burtivarda.setAttribute('id', 'burts' + i);
             //burtivarda.setAttribute('onclick','clear(this.id)');
-            burtivarda.onclick=()=>{
-                burtivarda.innerHTML=" __ ";
-                let k= document.getElementById(id).innerHTML;
-               
-            }
+            burtivarda.onclick = () => {
+                burtivarda.innerHTML = " __ ";
+                let k = document.getElementById(id).innerHTML;
+
+            };
         }
 
         document.getElementById('izvele').style.visibility = 'collapse';
@@ -162,25 +168,28 @@
         poga3.innerHTML = 3;
         poga3.setAttribute('id', 3);
         poga3.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
-        poga3.setAttribute('onclick', 'varduDaudz(this.id), sakt()');
+        poga3.setAttribute('onclick', 'varduDaudz(this.id), sakt(), izveleBurtu()');
         document.getElementById("izvele").appendChild(poga3);
         document.getElementById("rakstizvele").style.visibility = 'visible';
+        varduDaudzums = 3;
 
         let poga4 = document.createElement("button");
         poga4.innerHTML = 4;
         poga4.setAttribute('id', 4);
         poga4.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
-        poga4.setAttribute('onclick', 'varduDaudz(this.id), sakt()');
+        poga4.setAttribute('onclick', 'varduDaudz(this.id), sakt(), izveleBurtu()');
         document.getElementById("izvele").appendChild(poga4);
         document.getElementById("rakstizvele").style.visibility = 'visible';
+        varduDaudzums = 4;
 
         let poga5 = document.createElement("button");
         poga5.innerHTML = 5;
         poga5.setAttribute('id', 5);
         poga5.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
-        poga5.setAttribute('onclick', 'varduDaudz(this.id), sakt()');
+        poga5.setAttribute('onclick', 'varduDaudz(this.id), sakt(), izveleBurtu()');
         document.getElementById("izvele").appendChild(poga5);
         document.getElementById("rakstizvele").style.visibility = 'visible';
+        varduDaudzums = 5;
     }
 
     var countDownDate, spele;
@@ -201,34 +210,37 @@
     const vowels = ['a', 'e', 'i', 'o', 'u'];
     const consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
     function izveliesVardus() {
-        document.getElementById("burt1").innerHTML = vowels[Math.floor(Math.random() * 5)];
-        document.getElementById("burt2").innerHTML = vowels[Math.floor(Math.random() * 5)];
+        document.getElementById("burt1").innerHTML = burtins3;
+        document.getElementById("burt2").innerHTML = burtins0;
         while (document.getElementById("burt2").innerHTML === document.getElementById("burt1").innerHTML) {
             document.getElementById("burt2").innerHTML = vowels[Math.floor(Math.random() * 5)];
         }
-        document.getElementById("burt3").innerHTML = vowels[Math.floor(Math.random() * 5)];
+        document.getElementById("burt3").innerHTML = burtins2;
         while (document.getElementById("burt3").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt3").innerHTML === document.getElementById("burt2").innerHTML) {
             document.getElementById("burt3").innerHTML = vowels[Math.floor(Math.random() * 5)];
         }
-        document.getElementById("burt4").innerHTML = consonants[Math.floor(Math.random() * 21)];
+        document.getElementById("burt4").innerHTML = burtins4;
+        while (document.getElementById("burt4").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt4").innerHTML === document.getElementById("burt2").innerHTML || document.getElementById("burt4").innerHTML === document.getElementById("burt3").innerHTML || document.getElementById("burt4").innerHTML === document.getElementById("burt8").innerHTML){
+            document.getElementById("burt4").innerHTML = vowels[Math.floor(Math.random() * 5)];
+        }
         document.getElementById("burt5").innerHTML = consonants[Math.floor(Math.random() * 21)];
-        while (document.getElementById("burt4").innerHTML === document.getElementById("burt5").innerHTML) {
+        while (document.getElementById("burt5").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt5").innerHTML === document.getElementById("burt2").innerHTML || document.getElementById("burt5").innerHTML === document.getElementById("burt3").innerHTML || document.getElementById("burt5").innerHTML === document.getElementById("burt4").innerHTML || document.getElementById("burt5").innerHTML === document.getElementById("burt8").innerHTML) {
             document.getElementById("burt5").innerHTML = consonants[Math.floor(Math.random() * 21)];
         }
         document.getElementById("burt6").innerHTML = consonants[Math.floor(Math.random() * 21)];
-        while (document.getElementById("burt6").innerHTML === document.getElementById("burt4").innerHTML || document.getElementById("burt6").innerHTML === document.getElementById("burt5").innerHTML) {
+        while (document.getElementById("burt6").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt6").innerHTML === document.getElementById("burt2").innerHTML || document.getElementById("burt6").innerHTML === document.getElementById("burt3").innerHTML || document.getElementById("burt6").innerHTML === document.getElementById("burt4").innerHTML || document.getElementById("burt6").innerHTML === document.getElementById("burt8").innerHTML || document.getElementById("burt6").innerHTML === document.getElementById("burt5").innerHTML) {
             document.getElementById("burt6").innerHTML = consonants[Math.floor(Math.random() * 21)];
         }
         document.getElementById("burt7").innerHTML = consonants[Math.floor(Math.random() * 21)];
-        while (document.getElementById("burt7").innerHTML === document.getElementById("burt4").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt5").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt6").innerHTML) {
+        while (document.getElementById("burt7").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt2").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt3").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt4").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt8").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt5").innerHTML || document.getElementById("burt7").innerHTML === document.getElementById("burt6").innerHTML) {
             document.getElementById("burt7").innerHTML = consonants[Math.floor(Math.random() * 21)];
         }
-        document.getElementById("burt8").innerHTML = vowels[Math.floor(Math.random() * 5)];
+        document.getElementById("burt8").innerHTML = burtins1;
         while (document.getElementById("burt8").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt8").innerHTML === document.getElementById("burt2").innerHTML || document.getElementById("burt8").innerHTML === document.getElementById("burt3").innerHTML) {
             document.getElementById("burt8").innerHTML = vowels[Math.floor(Math.random() * 5)];
         }
     }
-   
+
     let x = "";
     let sk = 0;
     function burts(id) {
@@ -296,10 +308,41 @@
         if (existsInArray) {
             console.log(`${lodzini} ir`);
             punkti++;
-            varduDaudzums++;
+            varduSkaits++;
+            refresh();
         } else {
             console.log(`${lodzini} nav`);
         }
         console.log(punkti);
-    }    
+    }
+    function izveleBurtu() {
+        while (varduDaudzums > l) {
+            randomVards = vardKopa[Math.floor(Math.random() * 5757)];
+            burtins0 = randomVards.charAt(0);
+            burtins1 = randomVards.charAt(1);
+            burtins2 = randomVards.charAt(2);
+            burtins3 = randomVards.charAt(3);
+            burtins4 = randomVards.charAt(4);
+
+            console.log(randomVards, burtins0, burtins1, burtins2, burtins3, burtins4);
+            let resultArray0 = filterWordsByLetter(vardKopa, burtins0);
+            let resultArray1 = filterWordsByLetter(resultArray0, burtins1);
+            let resultArray2 = filterWordsByLetter(resultArray1, burtins2);
+            let resultArray3 = filterWordsByLetter(resultArray2, burtins3);
+            let resultArray4 = filterWordsByLetter(resultArray3, burtins4);
+            l = resultArray4.length;
+            console.log(resultArray4, l, burtins3);
+        }
+        izveliesVardus();
+    }
+    function filterWordsByLetter(wordArray, targetLetter) {
+        const filteredWords = wordArray.filter(word => {
+            return word.includes(targetLetter);
+        });
+
+        return filteredWords;
+    }
+    function refresh(){
+        
+    }
 </script>
