@@ -201,7 +201,7 @@
 
     var countDownDate, spele;
     function sakt() {
-        countDownDate = new Date().getTime();
+        countDownDate = new Date().getTime()+60000;
         spele = setInterval(skaita, 1000);
     }
     function skaita() {
@@ -209,7 +209,7 @@
         let distance = countDownDate-now;
         let seconds = Math.floor((distance % (1000 * 60)) / 1000);
         document.getElementById("pulkstens").innerHTML = seconds + "s ";
-        if (distance > 30000) {
+        if (distance <0) {
             clearInterval(spele);
             document.getElementById("pulkstens").innerHTML = "Beidzās laiks";
         }
