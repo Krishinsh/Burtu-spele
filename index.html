@@ -75,14 +75,14 @@
                 </div>               
                 <div class="w3-display-middle">
                     <div class="w3-bar" id="bar" >
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt1" onclick="burts(id, this)"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt2" onclick="burts(id, this)"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt3" onclick="burts(id, this)"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt8" onclick="burts(id, this)"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt4" onclick="burts(id, this)"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt5" onclick="burts(id, this)"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt6" onclick="burts(id, this)"></button>
-                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt7" onclick="burts(id, this)"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="visibility: collapse;" id="burt1" onclick="burts(id, this)"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="visibility: collapse;" id="burt2" onclick="burts(id, this)"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="visibility: collapse;" id="burt3" onclick="burts(id, this)"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  style="visibility: collapse;" id="burt8" onclick="burts(id, this)"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="visibility: collapse;" id="burt4" onclick="burts(id, this)"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  style="visibility: collapse;" id="burt5" onclick="burts(id, this)"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="visibility: collapse;" id="burt6" onclick="burts(id, this)"></button>
+                        <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  style="visibility: collapse;" id="burt7" onclick="burts(id, this)"></button>
                     </div>
                 </div> 
                 <div class="w3-display-bottommiddle">
@@ -145,7 +145,15 @@
                 console.error('Error:', error.message);
             });
     function varduDaudz(id) {
-
+document.getElementById("rakstizvele").style.visibility = 'collapse';   
+document.getElementById("burt1").style.visibility = 'visible';
+document.getElementById("burt2").style.visibility = 'visible';
+document.getElementById("burt3").style.visibility = 'visible';
+document.getElementById("burt4").style.visibility = 'visible';
+document.getElementById("burt5").style.visibility = 'visible';
+document.getElementById("burt6").style.visibility = 'visible';
+document.getElementById("burt7").style.visibility = 'visible';
+document.getElementById("burt8").style.visibility = 'visible';
 
         for (let i = 0; i < 5; i++) {
             let burtivarda = document.createElement("button");
@@ -180,7 +188,8 @@
         poga3.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
         poga3.setAttribute('onclick', 'varduDaudz(this.id), sakt(), izveleBurtu()');
         document.getElementById("izvele").appendChild(poga3);
-        document.getElementById("rakstizvele").style.visibility = 'visible';
+         document.getElementById("rakstizvele").style.visibility = 'visible';
+        
 
         let poga4 = document.createElement("button");
         poga4.innerHTML = 4;
@@ -188,7 +197,7 @@
         poga4.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
         poga4.setAttribute('onclick', 'varduDaudz(this.id), sakt(), izveleBurtu()');
         document.getElementById("izvele").appendChild(poga4);
-        document.getElementById("rakstizvele").style.visibility = 'visible';
+       
 
         let poga5 = document.createElement("button");
         poga5.innerHTML = 5;
@@ -196,7 +205,7 @@
         poga5.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
         poga5.setAttribute('onclick', 'varduDaudz(this.id), sakt(), izveleBurtu()');
         document.getElementById("izvele").appendChild(poga5);
-        document.getElementById("rakstizvele").style.visibility = 'visible';
+        
     }
 
     var countDownDate, spele;
