@@ -201,7 +201,7 @@
 
     var countDownDate, spele;
     function sakt() {
-        countDownDate = new Date().getTime()+60000;
+        countDownDate = new Date().getTime()+61000;
         spele = setInterval(skaita, 1000);
     }
     function skaita() {
@@ -357,6 +357,7 @@
         punkti = punkti + varduDaudzums;
         varduSkaits = 0;
         document.getElementById('punktini').innerHTML ='Punkti:'+punkti;
+        countDownDate=countDownDate+10000;
     }
     function restart(){
         l=0;
