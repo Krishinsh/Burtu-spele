@@ -221,7 +221,7 @@
             document.getElementById("burt3").innerHTML = vowels[Math.floor(Math.random() * 5)];
         }
         document.getElementById("burt4").innerHTML = burtins4;
-        while (document.getElementById("burt4").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt4").innerHTML === document.getElementById("burt2").innerHTML || document.getElementById("burt4").innerHTML === document.getElementById("burt3").innerHTML || document.getElementById("burt4").innerHTML === document.getElementById("burt8").innerHTML){
+        while (document.getElementById("burt4").innerHTML === document.getElementById("burt1").innerHTML || document.getElementById("burt4").innerHTML === document.getElementById("burt2").innerHTML || document.getElementById("burt4").innerHTML === document.getElementById("burt3").innerHTML || document.getElementById("burt4").innerHTML === document.getElementById("burt8").innerHTML) {
             document.getElementById("burt4").innerHTML = vowels[Math.floor(Math.random() * 5)];
         }
         document.getElementById("burt5").innerHTML = consonants[Math.floor(Math.random() * 21)];
@@ -310,7 +310,16 @@
             console.log(`${lodzini} ir`);
             punkti++;
             varduSkaits++;
-            refresh();
+            burts1 = false;
+            burts2 = false;
+            burts3 = false;
+            burts4 = false;
+            burts5 = false;
+            sk=0;
+            x="";
+            lodzini = "";
+            if (varduSkaits === varduDaudzums)
+                refresh();
         } else {
             console.log(`${lodzini} nav`);
         }
@@ -318,6 +327,7 @@
     }
     function izveleBurtu() {
         while (varduDaudzums > l) {
+            while(burtins0 != burtins1 && burtins0 != burtins2 && burtins0 != burtins3 && burtins0 != burtins4 && burtins1 != burtins2 && burtins1 != burtins3 && burtins1 != burtins4 && burtins0 != burtins4)
             randomVards = vardKopa[Math.floor(Math.random() * 5757)];
             burtins0 = randomVards.charAt(0);
             burtins1 = randomVards.charAt(1);
@@ -343,7 +353,10 @@
 
         return filteredWords;
     }
-    function refresh(){
-        
+    function refresh() {
+        punkti = punkti + varduDaudzums;
+        varduDaudzums = 0;
+        varduSkaits = 0;
+        izveliesDaudz();
     }
 </script>
