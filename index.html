@@ -106,12 +106,13 @@
 </html>
 <script>
     function clear(id){
+        console.log(id);
         document.getElementById(id).innerHTML.toString=(" __ ");
     }
     const visivardi = ["nez", "rainersrudz", "regnarsrudz", "kautkas", "haha", "aaa"];
-    function varduDaudz(id) {
-        let x = document.getElementById(id).innerHTML.toString();
-        console.log(x);
+    function varduDaudz(kk) {
+        let x = document.getElementById(kk).innerHTML.toString();
+        
            
         for (let i = 0; i < 5; i++) {
             let burtivarda = document.createElement("button");
@@ -120,7 +121,7 @@
             burtivarda.innerHTML = " __ ";
             burtivarda.setAttribute('class', "w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple");
             burtivarda.setAttribute('id', 'burts' + i);
-            burtivarda.setAttribute('onclick',clear(id,this));
+            burtivarda.setAttribute('onclick','clear(this.id)');
         }
 
         document.getElementById('izvele').style.visibility = 'collapse';
