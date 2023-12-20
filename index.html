@@ -68,7 +68,7 @@
 
                 </div> 
                 <div class="w3-display-middleright">
-                    <h1 class="w3-text-white" style="text-shadow:1px 1px 0 #444">Punkti:</h1><h1 class="w3-text-white" style="text-shadow:1px 1px 0 #444" id="punktini">    
+                    <h1 class="w3-text-white" style="text-shadow:1px 1px 0 #444" id="punktini">Punkti:0</h1>
                 </div>
                 <div class="w3-display-topmiddle">
                     <h1 class="w3-text-white" style="text-shadow:1px 1px 0 #444" id="pulkstens">
@@ -314,17 +314,17 @@
                 burtuArray[n]=false;
                 skArray[n]=false;
                 x[n]="";
-               document.getElementById('burts'+n).innerHTML="_";
+               document.getElementById('burts'+n).innerHTML=" __ ";
                 
             }
-            document.getElementById('punktini').innerHTML = punkti;
+            document.getElementById('punktini').innerHTML ='Punkti:'+punkti;
             lodzini = "";
             if (varduSkaits === varduDaudzums)
                 refresh();
         } else {
             console.log(`${lodzini} nav`);
         }
-        console.log(punkti);
+        console.log(punkti, skArray[1]);
     }
     function izveleBurtu() {
         while (10 > l) {
@@ -355,6 +355,7 @@
     function refresh() {
         punkti = punkti + varduDaudzums;
         varduSkaits = 0;
+        document.getElementById('punktini').innerHTML ='Punkti:'+punkti;
     }
     function restart(){
         l=0;
