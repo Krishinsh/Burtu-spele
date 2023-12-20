@@ -71,7 +71,7 @@
                     <h1 class="w3-text-white" style="text-shadow:1px 1px 0 #444" id="pulkstens">
                 </div>               
                 <div class="w3-display-middle">
-                    <div class="w3-bar">
+                    <div class="w3-bar" >
                         <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt1" onclick="burts(id, this)"></button>
                         <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt2" onclick="burts(id, this)"></button>
                         <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt3" onclick="burts(id, this)"></button>
@@ -311,6 +311,8 @@
                 burtuArray[n]=false;
                 skArray[n]=false;
                 x[n]="";
+               document.getElementById('burts'+n).innerHTML="_";
+                
             }
             lodzini = "";
             if (varduSkaits === varduDaudzums)
@@ -353,15 +355,18 @@
         izveliesDaudz();
     }
     function restart(){
+        l=0;
         varduSkaits=0;
         console.log(varduSkaits);
         for(let n=0; n<5; n++){
                 burtuArray[n]=false;
                 skArray[n]=false;
                 x[n]="";
+                
+                document.getElementById("burts"+n).innerHTML="_";
             }
             lodzini = "";
-            
+            izveleBurtu();
         
     }
 </script>
