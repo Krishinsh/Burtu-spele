@@ -74,7 +74,7 @@
                     <h1 class="w3-text-white" style="text-shadow:1px 1px 0 #444" id="pulkstens">
                 </div>               
                 <div class="w3-display-middle">
-                    <div class="w3-bar">
+                    <div class="w3-bar" >
                         <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt1" onclick="burts(id, this)"></button>
                         <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt2" onclick="burts(id, this)"></button>
                         <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt3" onclick="burts(id, this)"></button>
@@ -85,6 +85,9 @@
                         <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple"  id="burt7" onclick="burts(id, this)"></button>
                     </div>
                 </div> 
+                <div class="w3-display-bottommiddle">
+                    <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="height:100px; width: 200px"  id="restart" onclick="restart()">NOMAINĪT BURTUS</button>
+                </div>
 
             </div>
 
@@ -154,10 +157,10 @@
             burtivarda.setAttribute('value', peckartas[i]);
             burtivarda.onclick = () => {
                 burtivarda.innerHTML = " __ ";
-                let k = document.getElementById('burts' + i).id.charAt(5);
-                console.log(k);
-                burtuArray[k] = false;
-                skArray[k] = false;
+                  let k=document.getElementById('burts'+i).id.charAt(5);
+                  
+                burtuArray[k]=false;
+                skArray[k]=false;
             };
 
 
@@ -307,10 +310,12 @@
             console.log(`${lodzini} ir`);
             punkti++;
             varduSkaits++;
-            for (let n = 0; n < 5; n++) {
-                burtuArray[n] = false;
-                skArray[n] = false;
-                x[n] = "";
+            for(let n=0; n<5; n++){
+                burtuArray[n]=false;
+                skArray[n]=false;
+                x[n]="";
+               document.getElementById('burts'+n).innerHTML="_";
+                
             }
             document.getElementById('punktini').innerHTML = punkti;
             lodzini = "";
@@ -350,5 +355,20 @@
     function refresh() {
         punkti = punkti + varduDaudzums;
         varduSkaits = 0;
+    }
+    function restart(){
+        l=0;
+        varduSkaits=0;
+        console.log(varduSkaits);
+        for(let n=0; n<5; n++){
+                burtuArray[n]=false;
+                skArray[n]=false;
+                x[n]="";
+                
+                document.getElementById("burts"+n).innerHTML="_";
+            }
+            lodzini = "";
+            izveleBurtu();
+        
     }
 </script>
