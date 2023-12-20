@@ -109,7 +109,7 @@
         let x = document.getElementById(id).innerHTML.toString();
         console.log(x);
 
-        for (let i = 0; i < 8; i++) {
+        for (let i = 0; i < 5; i++) {
             let burtivarda = document.createElement("button");
 
             document.getElementById("vards").appendChild(burtivarda);
@@ -192,11 +192,6 @@
             document.getElementById("burt8").innerHTML = vowels[Math.floor(Math.random() * 5)];
         }
     }
-
-    function filterShortWords(words) {
-        return words.filter(word => word.length < 9);
-    }
-
     function doesWordExist(word, wordArray) {
         return wordArray.includes(word);
     }
@@ -285,7 +280,7 @@
     } else {
         console.log(`${lodzini} nav`);
     }
-    }
+
     function filterShortWords(words) {
         return words.filter(word => word.length < 6);
     }
