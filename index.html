@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="style.css" type="text/css"/>
+       
         <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/128/3665/3665892.png">
 
         <style>
@@ -88,7 +88,7 @@
                 <div class="w3-display-bottommiddle">
                     <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="height:100px; width: 200px"  id="restart" onclick="restart()">NOMAINĪT BURTUS</button>
                 </div>
-
+ 
             </div>
 
         </div>
@@ -417,16 +417,6 @@ document.getElementById("burt8").style.visibility = 'visible';
         lodzini = "";
         izveleBurtu();
     }
-    function rezultati(speletajs,punkti){
-        let dict={vards:speletajs, punkti:punkti, n:Number(n)};
-        fetch('https://kriistiiaans.pythonanywhere.com/send',{
-            method:'POST',
-            headers:{'Content-Type':'application/json'},
-            body:JSON.stringify(dict)
-        })
-                .then(res => res.json())
-                .then(data=>{
-                    atvert()
-        }
-    }
+   
+    
 </script>
