@@ -88,7 +88,10 @@
                 <div class="w3-display-bottommiddle">
                     <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="height:100px; width: 200px"  id="restart" onclick="restart()">NOMAINĪT BURTUS</button>
                 </div>
- 
+                <form class="w3-display-middleright" action="action" style="visibility: collapse;" method="POST" id="forma" name="forma">
+                    <input type="text" name="vards">
+                    <input type="submit" value="spied">
+                </form>
             </div>
 
         </div>
@@ -104,7 +107,7 @@
         </div>
         <div class="w3-display-container" style="height:300px;">
             <div class="w3-display-middle" id="results" style="font-size:140%;">
-                <table>
+                <table id="results">
                     <tr>
                         <th>Vards</th>
                         <th>Punkti</th>
@@ -229,7 +232,7 @@ document.getElementById("burt8").style.visibility = 'visible';
 
     var countDownDate, spele;
     function sakt() {
-        countDownDate = new Date().getTime() + 10000;
+        countDownDate = new Date().getTime() + 61000;
         spele = setInterval(skaita, 1000);
     }
     function skaita() {
@@ -253,7 +256,7 @@ document.getElementById("burt8").style.visibility = 'visible';
             document.getElementById("burts2").disabled = true;
             document.getElementById("burts3").disabled = true;
             document.getElementById("burts4").disabled = true;
-            location.reload();
+            document.getElementById("forma").style.visibility = 'visible';
 
         }
     }
@@ -417,6 +420,36 @@ document.getElementById("burt8").style.visibility = 'visible';
         lodzini = "";
         izveleBurtu();
     }
-   
+   function saveData() {
+            
+            
+
+            fetch('/save_data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name: name, value: value }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        function getData() {
+            fetch('/get_data')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                document.getElementById('results').innerHTML = data.data.join('<br>');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
     
 </script>

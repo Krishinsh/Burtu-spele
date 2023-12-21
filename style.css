@@ -1,16 +1,1 @@
-#flash {
-            width: 100px;
-            height: 100px;
-            background-color: green;
-            animation: flashAnimation 2s infinite;
-        }
 
-        @keyframes flashAnimation {
-            0%, 100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-        }
