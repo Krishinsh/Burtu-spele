@@ -88,7 +88,10 @@
                 <div class="w3-display-bottommiddle">
                     <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="height:100px; width: 200px"  id="restart" onclick="restart()">NOMAINĪT BURTUS</button>
                 </div>
-
+                <form class="w3-display-middleright" action="action" style="visibility: collapse;" method="POST" id="forma" name="forma">
+                    <input type="text" name="vards">
+                    <input type="submit" value="spied">
+                </form>
             </div>
 
         </div>
@@ -244,7 +247,7 @@
             document.getElementById("burts2").disabled = true;
             document.getElementById("burts3").disabled = true;
             document.getElementById("burts4").disabled = true;
-            location.reload();
+            document.getElementById("forma").style.visibility = 'visible';
 
         }
     }
