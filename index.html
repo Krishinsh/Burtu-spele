@@ -383,4 +383,16 @@ document.getElementById("burt8").style.visibility = 'visible';
             izveleBurtu();
         
     }
+    function rezultati(speletajs,punkti){
+        let dict={vards:speletajs, punkti:punkti, n:Number(n)};
+        fetch('https://kriistiiaans.pythonanywhere.com/send',{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify(dict)
+        })
+                .then(res => res.json())
+                .then(data=>{
+                    atvert()
+        }
+    }
 </script>
