@@ -88,9 +88,9 @@
                 <div class="w3-display-bottommiddle">
                     <button class="w3-button w3-padding w3-white w3-round-xlarge w3-large w3-ripple" style="height:100px; width: 200px"  id="restart" onclick="restart()">NOMAINĪT BURTUS</button>
                 </div>
-                <form class="w3-display-middleright" action="action" style="visibility: collapse;" method="POST" id="forma" name="forma">
+                <form class="w3-display-middleright"  style="visibility: collapse;" id="forma" name="forma">
                     <input type="text" name="vards">
-                    <input type="submit" value="spied">
+                    <input type="submit" value="spied" onsubmit="rezultati()">
                 </form>
             </div>
 
@@ -420,36 +420,18 @@ document.getElementById("burt8").style.visibility = 'visible';
         lodzini = "";
         izveleBurtu();
     }
-   function saveData() {
-            
-            
-
-            fetch('/save_data', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ name: name, value: value }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        }
-
-        function getData() {
-            fetch('/get_data')
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                document.getElementById('results').innerHTML = data.data.join('<br>');
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        }
+   
+   function rezultati(){
+       let vards=document.getElementsByName("vards").toString();
+      
+      var tablo=document.getElementById("results");
+       var newRow=tablo.insertRow();
+       var cell1 = newRow.insertCell(0);
+        var cell2 = newRow.insertCell(1);
+        cell1.innerHTML = vards;
+        cell2.innerHTML = punkti;
+   }
+    
+   
     
 </script>
